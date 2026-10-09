@@ -10,6 +10,7 @@
 
 | Field | Entry |
 | :--- | :--- |
+| **Team ID (as assigned)** | `[Team ID]` *(e.g., T-TriNetra)* |
 | **Team Name** | TriNetra |
 | **Project / Website Title** | SalarySeed — India In-Hand Salary Calculator |
 | **Niche (one line)** | Indian Personal Finance, CTC Breakdown & In-Hand Salary Computation |
@@ -269,20 +270,20 @@ Analyzing the top results across Google India shows clear patterns. First, pages
 
 *List tasks in the order you will do them, through the Milestone II deadline.*
 
-| Week | Task | Category (Technical / On-Page / Content / Off-Page) | Priority (High / Medium / Low) |
-| :-: | :--- | :--- | :-: |
-| **W1** | Establish semantic HTML5 structure, core mathematical engine, and automated unit testing | Technical | High |
-| **W2** | Implement title tags, meta descriptions, Open Graph cards, and JSON-LD structured schemas (`FAQPage`, `Article`, `SoftwareApplication`) | On-Page | High |
-| **W3** | Deploy XML sitemap (`sitemap.xml`) and search directives (`robots.txt`) cleanly segregating public and protected routes | Technical | High |
-| **W4** | Author and deploy 5 long-tail educational salary guide pages with verified mathematical tables | Content | High |
-| **W5** | Integrate Supabase Auth SDK for protected dashboard and calculator route security | Technical | Medium |
-| **W6** | Conduct Core Web Vitals optimization, mobile layout audits, and Lighthouse 100 benchmark validation | Technical | High |
-| **W7** | Build and package WordPress shortcode plugin (`salaryseed-wordpress-plugin.php`) for CMS integration | Technical | Medium |
-| **W8** | Deploy production release on Microsoft Azure App Service with automated GitHub Actions CI/CD | Technical | High |
-| **W9** | Submit sitemap to Google Search Console and Bing Webmaster Tools for indexation | Technical | High |
-| **W10** | Milestone II Content expansion: publish dedicated bracket guides for 3 LPA, 7 LPA, 15 LPA, and 25 LPA | Content | Medium |
-| **W11** | Conduct white-hat outreach for campus placement citations, career portals, and university forum backlinks | Off-Page | Low |
-| **W12** | Monitor organic impressions, CTR, average SERP position, and indexation status via Google Search Console | Technical / Analytics | Medium |
+| Week | Task | Category (Technical / On-Page / Content / Off-Page) | Priority (High / Medium / Low) | Owner (Enrolment No.) |
+| :-: | :--- | :--- | :-: | :---: |
+| **W1** | Establish semantic HTML5 structure, core mathematical engine, and automated unit testing | Technical | High | E23CSEU2320 |
+| **W2** | Implement title tags, meta descriptions, Open Graph cards, and JSON-LD structured schemas (`FAQPage`, `Article`, `SoftwareApplication`) | On-Page | High | E23CSEU2320 |
+| **W3** | Deploy XML sitemap (`sitemap.xml`) and search directives (`robots.txt`) cleanly segregating public and protected routes | Technical | High | E23CSEU2320 |
+| **W4** | Author and deploy 5 long-tail educational salary guide pages with verified mathematical tables | Content | High | E23CSEU2320 |
+| **W5** | Integrate Supabase Auth SDK for protected dashboard and calculator route security | Technical | Medium | E23CSEU2320 |
+| **W6** | Conduct Core Web Vitals optimization, mobile layout audits, and Lighthouse 100 benchmark validation | Technical | High | E23CSEU2320 |
+| **W7** | Build and package WordPress shortcode plugin (`salaryseed-wordpress-plugin.php`) for CMS integration | Technical | Medium | E23CSEU2320 |
+| **W8** | Deploy production release on Microsoft Azure App Service with automated GitHub Actions CI/CD | Technical | High | E23CSEU2320 |
+| **W9** | Submit sitemap to Google Search Console and Bing Webmaster Tools for indexation | Technical | High | E23CSEU2320 |
+| **W10** | Milestone II Content expansion: publish dedicated bracket guides for 3 LPA, 7 LPA, 15 LPA, and 25 LPA | Content | Medium | E23CSEU2320 |
+| **W11** | Conduct white-hat outreach for campus placement citations, career portals, and university forum backlinks | Off-Page | Low | E23CSEU2320 |
+| **W12** | Monitor organic impressions, CTR, average SERP position, and indexation status via Google Search Console | Technical / Analytics | Medium | E23CSEU2320 |
 
 ### Roadmap Priority Justification
 High-priority tasks are scheduled in the first few weeks because technical site performance, correct metadata, and calculation accuracy are needed before search engines index the site. Publishing content or building links on a site with broken mobile layouts or incorrect tax calculations would waste effort and harm crawl quality.

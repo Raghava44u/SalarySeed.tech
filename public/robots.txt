@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Allow: /about.html
+Allow: /methodology.html
+Allow: /privacy.html
+Allow: /guides/
+
+Disallow: /dashboard.html
+Disallow: /salary-calculator.html
+Disallow: /auth/
+
+Sitemap: https://salaryseed.in/sitemap.xml

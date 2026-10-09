@@ -45,17 +45,17 @@
 
 *For each task, write the enrolment number of the member who led it, and the enrolment numbers of any members who supported it. Every member must lead at least one task. Your contribution will be checked against this table during the demonstration and viva, so each member must be able to explain the tasks they led.*
 
-| Task | Report Section | Led by (Enrolment No.) | Supported by (Enrolment No.) |
-| :--- | :---: | :---: | :---: |
-| Niche selection, audience and problem analysis | 1 | E23CSEU2320 | - |
-| Keyword research and intent classification | 2 | E23CSEU2320 | - |
-| SERP analysis | 3 | E23CSEU2320 | - |
-| Competitor and content-gap analysis | 4 | E23CSEU2320 | - |
-| Site structure and keyword-to-page mapping | 5 | E23CSEU2320 | - |
-| SEO strategy and roadmap | 6 | E23CSEU2320 | - |
-| Domain registration, DNS and Cloudflare | 7 | E23CSEU2320 | - |
-| VPS provisioning and WordPress deployment | 8 | E23CSEU2320 | - |
-| Report compilation and evidence | All | E23CSEU2320 | - |
+| Task | Report Section | Led by (Enrolment No.) |
+| :--- | :---: | :---: |
+| Niche selection, audience and problem analysis | 1 | E23CSEU2320 |
+| Keyword research and intent classification | 2 | E23CSEU2320 |
+| SERP analysis | 3 | E23CSEU2320 |
+| Competitor and content-gap analysis | 4 | E23CSEU2320 |
+| Site structure and keyword-to-page mapping | 5 | E23CSEU2320 |
+| SEO strategy and roadmap | 6 | E23CSEU2320 |
+| Domain registration, DNS and Cloudflare | 7 | E23CSEU2320 |
+| VPS provisioning and WordPress deployment | 8 | E23CSEU2320 |
+| Report compilation and evidence | All | E23CSEU2320 |
 
 ---
 

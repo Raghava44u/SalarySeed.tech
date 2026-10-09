@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Free Account | SalarySeed</title>
+  <meta name="description" content="Sign up for SalarySeed to access the protected Indian salary calculator, salary breakdown comparisons, and dashboard.">
+  <link rel="canonical" href="https://salaryseed.in/auth/signup.html">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="/" class="brand-logo" aria-label="SalarySeed Homepage">
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+        <span>SalarySeed</span>
+      </a>
+      <nav class="main-nav">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/about.html" class="nav-link">About</a>
+        <a href="/methodology.html" class="nav-link">Methodology</a>
+      </nav>
+      <div class="nav-auth-group">
+        <a href="/auth/login.html" class="btn btn-outline btn-sm">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="auth-wrapper">
+    <div class="auth-card">
+      <h1 class="auth-title">Create Free Account</h1>
+      <p class="auth-subtitle">Unlock the interactive in-hand salary calculator</p>
+
+      <div id="auth-alert" class="alert alert-danger" style="display: none;" role="alert"></div>
+      <div id="auth-success" class="alert alert-success" style="display: none;" role="alert"></div>
+
+      <form id="form-signup" novalidate>
+        <div class="form-group">
+          <label for="signup-email" class="form-label">Email Address</label>
+          <input type="email" id="signup-email" class="form-input" placeholder="you@example.com" required autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label for="signup-password" class="form-label">Password</label>
+          <div class="password-toggle-wrapper">
+            <input type="password" id="signup-password" class="form-input" placeholder="At least 6 characters" minlength="6" required autocomplete="new-password">
+            <button type="button" class="password-toggle-btn" id="toggle-signup-password" aria-label="Toggle password visibility">Show</button>
+          </div>
+          <span class="form-hint">Must contain at least 6 characters.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="signup-confirm-password" class="form-label">Confirm Password</label>
+          <input type="password" id="signup-confirm-password" class="form-input" placeholder="Repeat password" minlength="6" required autocomplete="new-password">
+        </div>
+
+        <button type="submit" id="btn-submit-signup" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+          Create Account
+        </button>
+      </form>
+
+      <div style="text-align: center; margin-top: 1.5rem; font-size: 0.9rem; color: var(--color-text-muted);">
+        Already have an account? <a href="/auth/login.html" style="color: var(--color-accent-dark); font-weight: 600; text-decoration: none;">Sign in here</a>
+      </div>
+    </div>
+  </main>
+
+  <script type="module">
+    import { getSupabase } from '/js/supabase-client.js';
+    import { redirectIfAuthenticated, sanitizeRedirectPath } from '/js/auth-guard.js';
+    import { isSupabaseConfigured } from '/js/config.js';
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      await redirectIfAuthenticated();
+
+      const form = document.getElementById('form-signup');
+      const emailInput = document.getElementById('signup-email');
+      const passwordInput = document.getElementById('signup-password');
+      const confirmInput = document.getElementById('signup-confirm-password');
+      const toggleBtn = document.getElementById('toggle-signup-password');
+      const submitBtn = document.getElementById('btn-submit-signup');
+      const alertBox = document.getElementById('auth-alert');
+      const successBox = document.getElementById('auth-success');
+
+      toggleBtn.addEventListener('click', () => {
+        const isPassword = passwordInput.type === 'password';
+        passwordInput.type = isPassword ? 'text' : 'password';
+        confirmInput.type = isPassword ? 'text' : 'password';
+        toggleBtn.textContent = isPassword ? 'Hide' : 'Show';
+      });
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        alertBox.style.display = 'none';
+        successBox.style.display = 'none';
+
+        const email = emailInput.value.trim();
+        const password = passwordInput.value;
+        const confirm = confirmInput.value;
+
+        if (!email || !password || !confirm) {
+          alertBox.textContent = 'Please fill out all required fields.';
+          alertBox.style.display = 'block';
+          return;
+        }
+
+        if (password.length < 6) {
+          alertBox.textContent = 'Password must be at least 6 characters long.';
+          alertBox.style.display = 'block';
+          return;
+        }
+
+        if (password !== confirm) {
+          alertBox.textContent = 'Passwords do not match. Please re-enter.';
+          alertBox.style.display = 'block';
+          return;
+        }
+
+        if (!isSupabaseConfigured()) {
+          alertBox.innerHTML = '<strong>Configuration Notice:</strong> Supabase credentials are not configured in <code>js/config.js</code> or <code>.env</code>. Please configure your project to register real users.';
+          alertBox.style.display = 'block';
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Creating account...';
+
+        try {
+          const supabase = await getSupabase();
+          const { data, error } = await supabase.auth.signUp({
+            email,
+            password
+          });
+
+          if (error) {
+            alertBox.textContent = error.message || 'Unable to create account. Please try again.';
+            alertBox.style.display = 'block';
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Create Account';
+            return;
+          }
+
+          // Check if session was created immediately or email confirmation is pending
+          if (data.session) {
+            successBox.textContent = 'Account created successfully! Redirecting...';
+            successBox.style.display = 'block';
+            setTimeout(() => {
+              window.location.href = '/dashboard.html';
+            }, 800);
+          } else {
+            // Confirmation email required
+            successBox.innerHTML = `
+              <strong>Verification Email Sent!</strong><br>
+              We sent a confirmation link to <strong>${email}</strong>. Please check your inbox and verify your email before logging in.
+            `;
+            successBox.style.display = 'block';
+            form.reset();
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Create Account';
+          }
+        } catch (err) {
+          alertBox.textContent = 'An unexpected error occurred. Please check your network and try again.';
+          alertBox.style.display = 'block';
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Create Account';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

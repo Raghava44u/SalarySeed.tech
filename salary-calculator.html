@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive In-Hand Salary Calculator | SalarySeed</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .ctc-chips-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .ctc-chip {
+      background: var(--color-surface-subtle);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      padding: 0.35rem 0.85rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-text);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .ctc-chip:hover {
+      background: var(--color-primary-light);
+      border-color: var(--color-accent);
+      color: var(--color-primary);
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="/" class="brand-logo" aria-label="SalarySeed Homepage">
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+        <span>SalarySeed</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="/dashboard.html" class="nav-link">Dashboard</a>
+        <a href="/salary-calculator.html" class="nav-link active">Calculator</a>
+        <a href="/methodology.html" class="nav-link">Methodology</a>
+      </nav>
+
+      <div class="nav-auth-group">
+        <span id="user-email-display" style="font-size: 0.85rem; color: var(--color-text-muted); font-weight: 600;"></span>
+        <button class="btn btn-outline btn-sm btn-logout">Log Out</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container" style="padding-top: 2.5rem; padding-bottom: 4rem;">
+    <!-- Loading skeleton shown while checking authentication session -->
+    <div id="skeleton-loader" class="skeleton-loader">
+      <div class="spinner"></div>
+      <p>Verifying secure session...</p>
+    </div>
+
+    <!-- Alert shown if Supabase credentials are missing -->
+    <div id="config-alert" class="alert alert-warning" style="display: none;">
+      <div>
+        <strong>Supabase Credentials Missing:</strong>
+        <p>Please configure your Supabase URL and Anon Key in <code>js/config.js</code> or your local <code>.env</code> file. Refer to <code>SUPABASE_SETUP.md</code> for details.</p>
+        <div style="margin-top: 0.75rem;">
+          <a href="/" class="btn btn-sm btn-outline">Return to Public Homepage</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Protected Content: Hidden until authenticated -->
+    <div id="protected-content" style="display: none;">
+      <div style="margin-bottom: 1.5rem;">
+        <h1 style="font-size: 2rem; font-weight: 800; color: var(--color-dark);">Indian In-Hand Salary Calculator</h1>
+        <p style="color: var(--color-text-muted);">Budget 2024 New Tax Regime Slabs (Section 115BAC) • EPFO 12% Rules • Payment of Gratuity Act</p>
+      </div>
+
+      <div class="calculator-container">
+        <!-- Input Controls Panel -->
+        <div class="calc-panel">
+          <div class="tabs" role="tablist">
+            <button class="tab-btn active" id="tab-quick" role="tab" aria-selected="true">Quick Estimate</button>
+            <button class="tab-btn" id="tab-detailed" role="tab" aria-selected="false">Detailed Breakdown</button>
+          </div>
+
+          <!-- Quick Estimate Form -->
+          <form id="form-quick" onsubmit="event.preventDefault();">
+            <div class="form-group">
+              <label for="quick-ctc" class="form-label">Annual Cost to Company (CTC in ₹)</label>
+              <input type="number" id="quick-ctc" class="form-input" value="1000000" min="0" step="10000" placeholder="e.g. 1000000">
+              
+              <div class="ctc-chips-group" aria-label="Quick Select CTC Presets">
+                <button type="button" class="ctc-chip" data-amount="300000">3 LPA</button>
+                <button type="button" class="ctc-chip" data-amount="500000">5 LPA</button>
+                <button type="button" class="ctc-chip" data-amount="750000">7.5 LPA</button>
+                <button type="button" class="ctc-chip" data-amount="1000000">10 LPA</button>
+                <button type="button" class="ctc-chip" data-amount="1500000">15 LPA</button>
+                <button type="button" class="ctc-chip" data-amount="2500000">25 LPA</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="quick-regime" class="form-label">Tax Regime</label>
+              <select id="quick-regime" class="form-select">
+                <option value="new_2024" selected>New Tax Regime (Section 115BAC - Budget 2024, ₹75k Std Ded)</option>
+                <option value="old">Old Tax Regime (₹50k Std Ded)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="quick-pt" class="form-label">Annual Professional Tax (₹)</label>
+              <input type="number" id="quick-pt" class="form-input" value="2400" min="0" max="2500" step="100">
+              <span class="form-hint">Standard ₹200/mo (Max ₹2,500/year under Article 276).</span>
+            </div>
+          </form>
+
+          <!-- Detailed Breakdown Form -->
+          <form id="form-detailed" style="display: none;" onsubmit="event.preventDefault();">
+            <div class="form-group">
+              <label for="det-basic" class="form-label">Annual Basic Salary (₹)</label>
+              <input type="number" id="det-basic" class="form-input" value="400000" min="0" step="5000">
+            </div>
+
+            <div class="form-group">
+              <label for="det-hra" class="form-label">House Rent Allowance (HRA in ₹)</label>
+              <input type="number" id="det-hra" class="form-input" value="200000" min="0" step="5000">
+            </div>
+
+            <div class="form-group">
+              <label for="det-special" class="form-label">Special Allowance (₹)</label>
+              <input type="number" id="det-special" class="form-input" value="300000" min="0" step="5000">
+            </div>
+
+            <div class="form-group">
+              <label for="det-other-allow" class="form-label">Other Cash Allowances (₹)</label>
+              <input type="number" id="det-other-allow" class="form-input" value="0" min="0" step="5000">
+            </div>
+
+            <div class="form-group">
+              <label for="det-bonus" class="form-label">Annual Bonus / Variable Pay (₹)</label>
+              <input type="number" id="det-bonus" class="form-input" value="0" min="0" step="5000">
+            </div>
+
+            <div class="form-group">
+              <label for="det-regime" class="form-label">Tax Regime</label>
+              <select id="det-regime" class="form-select">
+                <option value="new_2024" selected>New Tax Regime (Budget 2024)</option>
+                <option value="old">Old Tax Regime</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="det-pt" class="form-label">Annual Professional Tax (₹)</label>
+              <input type="number" id="det-pt" class="form-input" value="2400" min="0" max="2500" step="100">
+            </div>
+
+            <div class="form-group">
+              <label for="det-other-ded" class="form-label">Other Deductions (Insurance/Loan in ₹)</label>
+              <input type="number" id="det-other-ded" class="form-input" value="0" min="0" step="1000">
+            </div>
+
+            <!-- Old Regime Specific Fields -->
+            <div id="old-regime-fields" style="background: var(--color-surface-subtle); padding: 1rem; border-radius: var(--radius-md); margin-top: 1rem;">
+              <p style="font-weight: 700; font-size: 0.9rem; margin-bottom: 0.5rem;">Old Regime Deductions (Optional)</p>
+              <div class="form-group">
+                <label for="det-80c" class="form-label">Section 80C Investments (Max ₹1.5L)</label>
+                <input type="number" id="det-80c" class="form-input" value="0" min="0" max="150000" step="5000">
+              </div>
+              <div class="form-group">
+                <label for="det-80d" class="form-label">Section 80D Health Insurance (Max ₹50k)</label>
+                <input type="number" id="det-80d" class="form-input" value="0" min="0" max="50000" step="1000">
+              </div>
+              <div class="form-group" style="margin-bottom: 0;">
+                <label for="det-hra-exempt" class="form-label">HRA Exemption Amount (₹)</label>
+                <input type="number" id="det-hra-exempt" class="form-input" value="0" min="0" step="5000">
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Calculated Results Panel -->
+        <div>
+          <!-- High-Impact Take-Home Card -->
+          <div class="result-card-highlight">
+            <span class="result-highlight-label">Estimated Monthly In-Hand Cash</span>
+            <div class="result-highlight-value" id="res-monthly-inhand">₹ 0</div>
+            <div class="result-highlight-sub" id="res-annual-inhand">₹ 0 / year</div>
+          </div>
+
+          <!-- Quick Stats Grid -->
+          <div class="result-stat-grid">
+            <div class="stat-box">
+              <span class="stat-box-label">Annual CTC Package</span>
+              <div class="stat-box-val" id="res-annual-ctc">₹ 0</div>
+            </div>
+            <div class="stat-box">
+              <span class="stat-box-label">Gross Cash Salary</span>
+              <div class="stat-box-val" id="res-gross-salary">₹ 0</div>
+            </div>
+            <div class="stat-box">
+              <span class="stat-box-label">Employee Deductions</span>
+              <div class="stat-box-val text-danger" id="res-total-deductions">₹ 0</div>
+            </div>
+            <div class="stat-box">
+              <span class="stat-box-label">Employer CTC Retentions</span>
+              <div class="stat-box-val" id="res-employer-retentions">₹ 0</div>
+            </div>
+          </div>
+
+          <!-- Tax Calculation Summary Drawer -->
+          <div style="margin-bottom: 1.5rem;">
+            <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-dark);">Tax Computation Summary</h3>
+            <div id="tax-summary-details"></div>
+          </div>
+
+          <!-- Itemized Breakdown Table -->
+          <div class="calc-panel" style="padding: 1.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--color-dark);">Complete Salary Breakdown</h3>
+              <div style="display: flex; gap: 0.5rem;">
+                <button type="button" class="btn btn-outline btn-sm" id="btn-copy-summary">Copy Summary</button>
+                <button type="button" class="btn btn-outline btn-sm" id="btn-print-summary">Print Breakdown</button>
+              </div>
+            </div>
+
+            <div class="table-responsive" style="margin: 0;">
+              <table class="styled-table" aria-label="Itemized Calculation Breakdown">
+                <thead>
+                  <tr>
+                    <th>Component</th>
+                    <th class="text-right">Monthly (₹)</th>
+                    <th class="text-right">Annual (₹)</th>
+                    <th>Classification</th>
+                  </tr>
+                </thead>
+                <tbody id="breakdown-table-body">
+                  <!-- Dynamically populated by calculator-app.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <p>&copy; 2026 SalarySeed (Team Trinetra). Built for Bennett University CSET489 Milestone I.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module">
+    import { requireAuth } from '/js/auth-guard.js';
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      // Enforce auth check before revealing page
+      await requireAuth();
+    });
+  </script>
+  <script type="module" src="/js/calculator-app.js"></script>
+</body>
+</html>

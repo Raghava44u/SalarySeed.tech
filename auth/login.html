@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In to Your Account | SalarySeed</title>
+  <meta name="description" content="Log in to SalarySeed to access the protected Indian CTC-to-in-hand salary calculator and dashboard.">
+  <link rel="canonical" href="https://salaryseed.in/auth/login.html">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="/" class="brand-logo" aria-label="SalarySeed Homepage">
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+        <span>SalarySeed</span>
+      </a>
+      <nav class="main-nav">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/about.html" class="nav-link">About</a>
+        <a href="/methodology.html" class="nav-link">Methodology</a>
+      </nav>
+      <div class="nav-auth-group">
+        <a href="/auth/signup.html" class="btn btn-primary btn-sm">Create Account</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="auth-wrapper">
+    <div class="auth-card">
+      <h1 class="auth-title">Welcome Back</h1>
+      <p class="auth-subtitle">Sign in to unlock the full salary calculator</p>
+
+      <div id="auth-alert" class="alert alert-danger" style="display: none;" role="alert"></div>
+      <div id="auth-success" class="alert alert-success" style="display: none;" role="alert"></div>
+
+      <form id="form-login" novalidate>
+        <div class="form-group">
+          <label for="login-email" class="form-label">Email Address</label>
+          <input type="email" id="login-email" class="form-input" placeholder="you@example.com" required autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+            <label for="login-password" class="form-label" style="margin-bottom: 0;">Password</label>
+            <a href="/auth/forgot-password.html" style="font-size: 0.8rem; color: var(--color-accent-dark); text-decoration: none;">Forgot password?</a>
+          </div>
+          <div class="password-toggle-wrapper">
+            <input type="password" id="login-password" class="form-input" placeholder="••••••••" required autocomplete="current-password">
+            <button type="button" class="password-toggle-btn" id="toggle-password" aria-label="Toggle password visibility">Show</button>
+          </div>
+        </div>
+
+        <button type="submit" id="btn-submit-login" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+          Sign In
+        </button>
+      </form>
+
+      <div style="text-align: center; margin-top: 1.5rem; font-size: 0.9rem; color: var(--color-text-muted);">
+        Don't have an account? <a href="/auth/signup.html" style="color: var(--color-accent-dark); font-weight: 600; text-decoration: none;">Create one free</a>
+      </div>
+    </div>
+  </main>
+
+  <script type="module">
+    import { getSupabase } from '/js/supabase-client.js';
+    import { redirectIfAuthenticated, sanitizeRedirectPath } from '/js/auth-guard.js';
+    import { isSupabaseConfigured } from '/js/config.js';
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      // If already logged in, redirect away
+      await redirectIfAuthenticated();
+
+      const form = document.getElementById('form-login');
+      const emailInput = document.getElementById('login-email');
+      const passwordInput = document.getElementById('login-password');
+      const toggleBtn = document.getElementById('toggle-password');
+      const submitBtn = document.getElementById('btn-submit-login');
+      const alertBox = document.getElementById('auth-alert');
+      const successBox = document.getElementById('auth-success');
+
+      // Password toggle
+      toggleBtn.addEventListener('click', () => {
+        const isPassword = passwordInput.type === 'password';
+        passwordInput.type = isPassword ? 'text' : 'password';
+        toggleBtn.textContent = isPassword ? 'Hide' : 'Show';
+      });
+
+      // Handle login submission
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        alertBox.style.display = 'none';
+        successBox.style.display = 'none';
+
+        const email = emailInput.value.trim();
+        const password = passwordInput.value;
+
+        if (!email || !password) {
+          alertBox.textContent = 'Please provide both your email and password.';
+          alertBox.style.display = 'block';
+          return;
+        }
+
+        if (!isSupabaseConfigured()) {
+          alertBox.innerHTML = '<strong>Configuration Notice:</strong> Supabase credentials are not configured in <code>js/config.js</code> or <code>.env</code>. Please supply your Supabase project keys to authenticate.';
+          alertBox.style.display = 'block';
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Signing in...';
+
+        try {
+          const supabase = await getSupabase();
+          const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+
+          if (error) {
+            alertBox.textContent = error.message || 'Invalid email or password. Please try again.';
+            alertBox.style.display = 'block';
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Sign In';
+            return;
+          }
+
+          successBox.textContent = 'Sign in successful! Redirecting...';
+          successBox.style.display = 'block';
+
+          // Extract safe destination
+          const params = new URLSearchParams(window.location.search);
+          const redirectTarget = sanitizeRedirectPath(params.get('redirect'));
+          setTimeout(() => {
+            window.location.href = redirectTarget;
+          }, 600);
+
+        } catch (err) {
+          alertBox.textContent = 'An unexpected error occurred. Please check your network and try again.';
+          alertBox.style.display = 'block';
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Sign In';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+.salaryseed-wp-container {
+  max-width: 700px;
+  margin: 1.5rem auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #1e293b;
+}
+.salaryseed-wp-container .calc-panel {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+.salaryseed-wp-container .form-group {
+  margin-bottom: 1rem;
+}
+.salaryseed-wp-container .form-label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+.salaryseed-wp-container .form-input,
+.salaryseed-wp-container .form-select {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.95rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+.salaryseed-wp-container .styled-table td,
+.salaryseed-wp-container .styled-table th {
+  border-bottom: 1px solid #e2e8f0;
+  padding: 8px;
+}

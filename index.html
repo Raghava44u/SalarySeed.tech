@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indian CTC to In-Hand Salary Calculator | SalarySeed</title>
+  <meta name="description" content="Calculate your exact monthly in-hand take-home salary from annual CTC in India. Accurate Budget 2024 New Tax Regime slabs, EPF, Gratuity, and Professional Tax breakdown.">
+  <link rel="canonical" href="https://salaryseed.in/">
+
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Indian CTC to In-Hand Salary Calculator | SalarySeed">
+  <meta property="og:description" content="Know your real take-home pay. Convert CTC to monthly in-hand salary with verified FY 2024-25 New Tax Regime rules, PF, and deductions.">
+  <meta property="og:url" content="https://salaryseed.in/">
+  <meta property="og:site_name" content="SalarySeed">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- Structured Data: Organization & FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://salaryseed.in/#website",
+        "url": "https://salaryseed.in/",
+        "name": "SalarySeed",
+        "description": "Know Your Salary. Plan Your Future. Indian CTC to In-Hand Salary Calculator."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the difference between CTC and in-hand salary?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Cost to Company (CTC) is the total annual expenditure an employer spends on an employee, including non-cash retentions like Employer EPF and Gratuity. In-hand salary is the actual cash credited to the employee's bank account after deducting Employee PF, Professional Tax, and Income Tax (TDS)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much income tax is deducted on a 7.5 LPA CTC under the New Tax Regime?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For FY 2024-25 / FY 2025-26 under the New Tax Regime, salaried employees receive a standard deduction of ₹75,000. For a 7.5 LPA CTC, taxable income falls below ₹7,00,000, qualifying for a 100% tax rebate under Section 87A. Consequently, net income tax is ₹0."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why is PF deducted twice from CTC in India?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Provident Fund has two components: Employer PF (12%) which is bundled into your annual CTC package, and Employee PF (12%) which is deducted directly from your monthly gross pay. Both amounts get deposited into your EPFO account."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="/" class="brand-logo" aria-label="SalarySeed Homepage">
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+        <span>SalarySeed</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main Navigation">
+        <a href="/" class="nav-link active">Home</a>
+        <a href="/about.html" class="nav-link">About</a>
+        <a href="/methodology.html" class="nav-link">Methodology</a>
+        <a href="/guides/ctc-vs-in-hand-salary.html" class="nav-link">Salary Guides</a>
+      </nav>
+
+      <div class="nav-auth-group">
+        <a href="/auth/login.html" class="btn btn-outline btn-sm" id="nav-btn-login">Log In</a>
+        <a href="/salary-calculator.html" class="btn btn-primary btn-sm" id="nav-btn-cta">Calculate Salary</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-badge">
+          <span>✨ Updated for FY 2024-25 & FY 2025-26 Budget Slabs</span>
+        </div>
+        <h1 class="hero-title">Indian CTC to In-Hand Salary Calculator</h1>
+        <p class="hero-subtitle">
+          Don’t let offer letter figures mislead you. Break down your Cost to Company (CTC) into actual monthly take-home pay, Employee PF, Employer contributions, and income tax under Section 115BAC.
+        </p>
+        <div class="hero-cta-group">
+          <a href="/salary-calculator.html" class="btn btn-accent btn-lg">Calculate My Salary &rarr;</a>
+          <a href="/guides/ctc-vs-in-hand-salary.html" class="btn btn-outline btn-lg">Understand CTC vs In-Hand</a>
+        </div>
+        <p class="form-hint">🔒 Free, confidential calculation. Secure authentication via Supabase Auth.</p>
+      </div>
+    </section>
+
+    <!-- Why CTC Differs Section -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Why Your In-Hand Salary is Less Than Your CTC</h2>
+          <p class="section-subtitle">
+            Companies define CTC as the total cost incurred to employ you. Your bank account only receives the cash salary left after multiple deductions.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3 class="card-title">1. Employer Contributions</h3>
+            <p class="card-desc">
+              Your CTC includes costs that never appear in your monthly bank transfer, such as the Employer’s 12% PF contribution and Gratuity provisions (4.81% of Basic Salary).
+            </p>
+          </div>
+          <div class="card">
+            <h3 class="card-title">2. Statutory Deductions</h3>
+            <p class="card-desc">
+              Your Employee PF (12% of basic) and State Professional Tax (up to ₹200/month or ₹2,400–₹2,500/year) are deducted at source from your gross monthly salary.
+            </p>
+          </div>
+          <div class="card">
+            <h3 class="card-title">3. Income Tax (TDS)</h3>
+            <p class="card-desc">
+              Tax Deducted at Source is deducted by your payroll team based on whether you opt for the New Tax Regime (Section 115BAC) or the Old Tax Regime.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Illustrative Example Table -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Illustrative Breakdown: ₹10,00,000 (10 LPA) CTC</h2>
+          <p class="section-subtitle">
+            Here is how a standard corporate ₹10 Lakh salary breaks down under the revised New Tax Regime (Budget 2024).
+          </p>
+        </div>
+
+        <div class="table-responsive">
+          <table class="styled-table" aria-label="Illustrative 10 LPA Salary Breakdown">
+            <thead>
+              <tr>
+                <th>Salary Component</th>
+                <th class="text-right">Monthly (₹)</th>
+                <th class="text-right">Annual (₹)</th>
+                <th>Classification</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Basic Salary</strong> (40% of CTC)</td>
+                <td class="text-right">₹ 33,333</td>
+                <td class="text-right">₹ 4,00,000</td>
+                <td>Cash Earnings</td>
+              </tr>
+              <tr>
+                <td><strong>House Rent Allowance (HRA)</strong> (50% of Basic)</td>
+                <td class="text-right">₹ 16,667</td>
+                <td class="text-right">₹ 2,00,000</td>
+                <td>Cash Earnings</td>
+              </tr>
+              <tr>
+                <td><strong>Special Allowance</strong> (Balancing figure)</td>
+                <td class="text-right">₹ 27,730</td>
+                <td class="text-right">₹ 3,32,760</td>
+                <td>Cash Earnings</td>
+              </tr>
+              <tr style="background-color: #f8fafc; font-weight: 700;">
+                <td><strong>Gross Cash Salary</strong></td>
+                <td class="text-right">₹ 77,730</td>
+                <td class="text-right">₹ 9,32,760</td>
+                <td>Gross Cash Earnings</td>
+              </tr>
+              <tr>
+                <td class="text-danger">Employee PF (12% of Basic)</td>
+                <td class="text-right text-danger">-₹ 4,000</td>
+                <td class="text-right text-danger">-₹ 48,000</td>
+                <td>Statutory Deduction</td>
+              </tr>
+              <tr>
+                <td class="text-danger">Professional Tax (PT)</td>
+                <td class="text-right text-danger">-₹ 200</td>
+                <td class="text-right text-danger">-₹ 2,400</td>
+                <td>State Tax</td>
+              </tr>
+              <tr>
+                <td class="text-danger">Income Tax (TDS - New Regime)</td>
+                <td class="text-right text-danger">-₹ 3,101</td>
+                <td class="text-right text-danger">-₹ 37,207</td>
+                <td>TDS Deduction</td>
+              </tr>
+              <tr style="background-color: #ecfdf5; font-weight: 800;">
+                <td class="text-emerald">Estimated In-Hand Take-Home Pay</td>
+                <td class="text-right text-emerald">₹ 70,429</td>
+                <td class="text-right text-emerald">₹ 8,45,153</td>
+                <td>Credited to Bank</td>
+              </tr>
+              <tr>
+                <td>Employer PF (12% of Basic in CTC)</td>
+                <td class="text-right">₹ 4,000</td>
+                <td class="text-right">₹ 48,000</td>
+                <td>Employer Benefit</td>
+              </tr>
+              <tr>
+                <td>Gratuity Provision (4.81% of Basic in CTC)</td>
+                <td class="text-right">₹ 1,603</td>
+                <td class="text-right">₹ 19,240</td>
+                <td>Retirement Benefit</td>
+              </tr>
+              <tr style="background-color: #f1f5f9; font-weight: 700;">
+                <td>Total Cost to Company (CTC)</td>
+                <td class="text-right">₹ 83,333</td>
+                <td class="text-right">₹ 10,00,000</td>
+                <td>Annual CTC</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="form-hint text-right">*Note: Illustrative example based on standard Indian corporate pay structure and Budget 2024 New Regime rates. Opting for our calculator gives customized numbers for your specific offer letter.</p>
+      </div>
+    </section>
+
+    <!-- Popular Salary Guides Section -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Popular Indian Salary Guides</h2>
+          <p class="section-subtitle">Read in-depth breakdowns tailored for common job offer packages and tax queries.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3 class="card-title">5 LPA In-Hand Salary Breakdown</h3>
+            <p class="card-desc">Why freshers and entry-level professionals with 5 LPA pay zero income tax under Section 87A and take home ~₹36,600/month.</p>
+            <div style="margin-top: 1rem;">
+              <a href="/guides/5-lpa-in-hand-salary.html" class="nav-link text-emerald">Read 5 LPA Guide &rarr;</a>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="card-title">10 LPA In-Hand Salary Guide</h3>
+            <p class="card-desc">Detailed analysis of 10 LPA CTC, gross salary vs in-hand, tax slabs under Budget 2024, and monthly in-hand expectations.</p>
+            <div style="margin-top: 1rem;">
+              <a href="/guides/10-lpa-in-hand-salary.html" class="nav-link text-emerald">Read 10 LPA Guide &rarr;</a>
+            </div>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Old vs New Tax Regime for Salaried</h3>
+            <p class="card-desc">Clear comparison of standard deductions (₹75k vs ₹50k), tax slabs, and breakeven investment analysis.</p>
+            <div style="margin-top: 1rem;">
+              <a href="/guides/old-vs-new-tax-regime.html" class="nav-link text-emerald">Read Tax Regime Guide &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">Everything you need to know about Indian salary structure and take-home calculations.</p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary class="faq-question">What is the difference between CTC and In-Hand Salary?</summary>
+            <div class="faq-answer">
+              Cost to Company (CTC) is the total amount a company incurs to employ you. It includes deferred benefits like Gratuity and Employer PF. In-hand salary is the actual net cash credited to your bank account after all deductions.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">What is the New Tax Regime Standard Deduction for FY 2024-25?</summary>
+            <div class="faq-answer">
+              In Union Budget 2024, the Indian government increased the standard deduction for salaried individuals under the New Tax Regime from ₹50,000 to ₹75,000.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">Can I calculate custom allowances and deductions?</summary>
+            <div class="faq-answer">
+              Yes! SalarySeed provides both a Quick Estimate mode (deriving corporate components from CTC) and a Detailed Breakdown mode where you can input your exact Basic Salary, HRA, Special Allowance, PF, and Professional Tax.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">Is my financial data stored on your servers?</summary>
+            <div class="faq-answer">
+              No. All salary calculations run strictly client-side in your web browser. SalarySeed never transmits, stores, or logs your salary numbers on any server.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-logo" style="color: #ffffff; margin-bottom: 0.75rem;">
+            <span>SalarySeed</span>
+          </div>
+          <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 1rem;">
+            Know Your Salary. Plan Your Future.<br>
+            Authoritative, transparent Indian CTC-to-in-hand salary calculations.
+          </p>
+          <p style="font-size: 0.85rem; color: #64748b;">
+            Academic Project by Team Trinetra<br>
+            Bennett University — CSET489 Search Engine Optimization
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Calculators & Tools</h4>
+          <ul class="footer-links">
+            <li><a href="/salary-calculator.html">In-Hand Calculator</a></li>
+            <li><a href="/dashboard.html">User Dashboard</a></li>
+            <li><a href="/methodology.html">Calculation Formulas</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Salary Guides</h4>
+          <ul class="footer-links">
+            <li><a href="/guides/5-lpa-in-hand-salary.html">5 LPA In-Hand Salary</a></li>
+            <li><a href="/guides/10-lpa-in-hand-salary.html">10 LPA In-Hand Salary</a></li>
+            <li><a href="/guides/ctc-vs-in-hand-salary.html">CTC vs In-Hand Salary</a></li>
+            <li><a href="/guides/salary-breakup-guide.html">Salary Breakup Guide</a></li>
+            <li><a href="/guides/old-vs-new-tax-regime.html">Old vs New Tax Regime</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Legal & Project</h4>
+          <ul class="footer-links">
+            <li><a href="/about.html">About SalarySeed</a></li>
+            <li><a href="/methodology.html">Methodology & Sources</a></li>
+            <li><a href="/privacy.html">Privacy Policy</a></li>
+            <li><a href="/auth/login.html">Sign In</a></li>
+            <li><a href="/auth/signup.html">Create Account</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 SalarySeed (Team Trinetra: Dasari Veera Raghavulu). Built for Bennett University CSET489 Milestone I.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Dynamic Header Script -->
+  <script type="module">
+    import { getSession } from '/js/supabase-client.js';
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      const session = await getSession();
+      if (session && session.user) {
+        const loginBtn = document.getElementById('nav-btn-login');
+        const ctaBtn = document.getElementById('nav-btn-cta');
+        if (loginBtn) {
+          loginBtn.textContent = 'Dashboard';
+          loginBtn.href = '/dashboard.html';
+        }
+        if (ctaBtn) {
+          ctaBtn.textContent = 'Open Calculator';
+          ctaBtn.href = '/salary-calculator.html';
+        }
+      }
+    });
+  </script>
+</body>
+</html>

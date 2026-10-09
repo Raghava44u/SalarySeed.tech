@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard | SalarySeed</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="/" class="brand-logo" aria-label="SalarySeed Homepage">
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+        <span>SalarySeed</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="/dashboard.html" class="nav-link active">Dashboard</a>
+        <a href="/salary-calculator.html" class="nav-link">Calculator</a>
+        <a href="/methodology.html" class="nav-link">Methodology</a>
+      </nav>
+
+      <div class="nav-auth-group">
+        <span id="user-email-display" style="font-size: 0.85rem; color: var(--color-text-muted); font-weight: 600;"></span>
+        <button class="btn btn-outline btn-sm btn-logout">Log Out</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container" style="padding-top: 3rem; padding-bottom: 4rem;">
+    <!-- Loading skeleton shown while checking authentication session -->
+    <div id="skeleton-loader" class="skeleton-loader">
+      <div class="spinner"></div>
+      <p>Verifying secure session...</p>
+    </div>
+
+    <!-- Alert shown if Supabase credentials are missing -->
+    <div id="config-alert" class="alert alert-warning" style="display: none;">
+      <div>
+        <strong>Supabase Credentials Missing:</strong>
+        <p>Please configure your Supabase URL and Anon Key in <code>js/config.js</code> or your local <code>.env</code> file. Refer to <code>SUPABASE_SETUP.md</code> for details.</p>
+        <div style="margin-top: 0.75rem;">
+          <a href="/" class="btn btn-sm btn-outline">Return to Public Homepage</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Protected Content: Hidden until authenticated -->
+    <div id="protected-content" style="display: none;">
+      <div class="card" style="background: linear-gradient(135deg, #064e3b 0%, #047857 100%); color: #ffffff; padding: 2.5rem; margin-bottom: 2rem;">
+        <span class="hero-badge" style="background: rgba(255,255,255,0.2); color: #ffffff;">Authenticated Member Portal</span>
+        <h1 style="font-size: 2.25rem; font-weight: 800; margin: 0.75rem 0 0.5rem 0;">Welcome to Your Financial Command Center</h1>
+        <p style="font-size: 1.1rem; opacity: 0.9; max-width: 650px; margin-bottom: 1.5rem;">
+          SalarySeed helps you analyze job offers, understand tax brackets under Finance Act 2024, and calculate your true monthly in-hand compensation.
+        </p>
+        <div>
+          <a href="/salary-calculator.html" class="btn btn-accent btn-lg" style="background: #ffffff; color: var(--color-primary); font-weight: 700;">
+            Open Salary Calculator &rarr;
+          </a>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h2 class="card-title" style="font-size: 1.25rem;">Quick CTC Estimator</h2>
+          <p class="card-desc">Instantly convert overall CTC into in-hand cash using standard Indian corporate pay structures and New Tax Regime rules.</p>
+          <div style="margin-top: 1.25rem;">
+            <a href="/salary-calculator.html" class="btn btn-outline btn-sm">Launch Quick Mode &rarr;</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title" style="font-size: 1.25rem;">Detailed Salary Modeling</h2>
+          <p class="card-desc">Fine-tune individual items like Basic Pay, HRA, Special Allowance, PF, Gratuity, and compare Old vs New Regimes.</p>
+          <div style="margin-top: 1.25rem;">
+            <a href="/salary-calculator.html" class="btn btn-outline btn-sm">Launch Detailed Mode &rarr;</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title" style="font-size: 1.25rem;">Authoritative Methodology</h2>
+          <p class="card-desc">Read how Section 115BAC slabs, Section 87A rebates, EPFO rules, and Payment of Gratuity Act formulas are computed.</p>
+          <div style="margin-top: 1.25rem;">
+            <a href="/methodology.html" class="btn btn-outline btn-sm">Read Methodology &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <p>&copy; 2026 SalarySeed (Team Trinetra). Built for Bennett University CSET489 Milestone I.</p>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { requireAuth } from '/js/auth-guard.js';
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      await requireAuth();
+    });
+  </script>
+</body>
+</html>

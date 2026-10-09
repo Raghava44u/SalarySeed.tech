@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculation Methodology & Legal Tax Rules | SalarySeed</title>
+  <meta name="description" content="Official formulas and mathematical methodology behind SalarySeed's Indian salary calculations. Budget 2024 New Tax Regime, EPF, Gratuity, and PT rules.">
+  <link rel="canonical" href="https://salaryseed.in/methodology.html">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="/" class="brand-logo" aria-label="SalarySeed Homepage">
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+        <span>SalarySeed</span>
+      </a>
+      <nav class="main-nav" aria-label="Main Navigation">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/about.html" class="nav-link">About</a>
+        <a href="/methodology.html" class="nav-link active">Methodology</a>
+        <a href="/guides/ctc-vs-in-hand-salary.html" class="nav-link">Salary Guides</a>
+      </nav>
+      <div class="nav-auth-group">
+        <a href="/auth/login.html" class="btn btn-outline btn-sm">Log In</a>
+        <a href="/salary-calculator.html" class="btn btn-primary btn-sm">Calculate Salary</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container" style="padding-top: 3.5rem; padding-bottom: 4rem;">
+    <article style="max-width: 860px; margin: 0 auto;">
+      <h1 class="hero-title" style="text-align: left; margin-bottom: 1rem;">Calculation Methodology & Formulas</h1>
+      <p style="font-size: 1.15rem; color: var(--color-text-muted); margin-bottom: 2.5rem;">
+        SalarySeed calculates Indian salaries using exact statutory legislation and tax slabs verified from official government portals.
+      </p>
+
+      <!-- Section 1: CTC Equation -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2 class="card-title" style="font-size: 1.4rem;">1. Core Financial Equations</h2>
+        <div class="card" style="margin-top: 1rem; background: var(--color-surface-subtle);">
+          <p><strong>Equation 1 (Cost to Company):</strong></p>
+          <pre style="padding: 0.75rem; background: #fff; border: 1px solid var(--color-border); border-radius: 6px; overflow-x: auto;">CTC = Gross Salary + Employer PF (12% of Basic) + Gratuity Provision (4.81% of Basic) + Other Employer Costs</pre>
+          
+          <p style="margin-top: 1rem;"><strong>Equation 2 (Gross Cash Salary):</strong></p>
+          <pre style="padding: 0.75rem; background: #fff; border: 1px solid var(--color-border); border-radius: 6px; overflow-x: auto;">Gross Cash Salary = Basic Salary + HRA + Special Allowance + Other Allowances + Bonus</pre>
+
+          <p style="margin-top: 1rem;"><strong>Equation 3 (Net In-Hand Take-Home):</strong></p>
+          <pre style="padding: 0.75rem; background: #fff; border: 1px solid var(--color-border); border-radius: 6px; overflow-x: auto;">In-Hand Salary = Gross Cash Salary - (Employee PF + Professional Tax + Income Tax / TDS + Other Deductions)</pre>
+        </div>
+      </section>
+
+      <!-- Section 2: Statutory Benefits -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2 class="card-title" style="font-size: 1.4rem;">2. Statutory Components Breakdown</h2>
+        <ul style="padding-left: 1.5rem; line-height: 1.8; margin-top: 0.75rem;">
+          <li>
+            <strong>Employees' Provident Fund (EPF):</strong> Under the <em>Employees' Provident Funds and Miscellaneous Provisions Act, 1952</em>, both employee and employer contribute 12% of Basic Salary + Dearness Allowance.
+          </li>
+          <li>
+            <strong>Gratuity:</strong> Governed by the <em>Payment of Gratuity Act, 1972</em>. Annual gratuity liability is calculated as <code>(15 / 26) * (Basic Salary / 12) * 12</code>, equivalent to approximately <strong>4.81%</strong> of annual basic pay.
+          </li>
+          <li>
+            <strong>Professional Tax (PT):</strong> Levied by state governments under Article 276 of the Constitution of India (capped at ₹2,500/year). Our engine applies the standard ₹200/month (₹2,400/year) average across major industrial states.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 3: Income Tax Slabs -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2 class="card-title" style="font-size: 1.4rem;">3. Tax Regimes (Finance Act 2024 Revisions)</h2>
+        <p style="margin-top: 0.5rem; margin-bottom: 1rem;">
+          SalarySeed implements the revised New Tax Regime (Section 115BAC) introduced in the Union Budget of July 2024:
+        </p>
+
+        <div class="table-responsive">
+          <table class="styled-table" aria-label="Budget 2024 New Tax Regime Slabs">
+            <thead>
+              <tr>
+                <th>Income Slab</th>
+                <th>Tax Rate</th>
+                <th>Applicable Conditions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Up to ₹3,00,000</td>
+                <td>NIL (0%)</td>
+                <td>Basic exemption limit</td>
+              </tr>
+              <tr>
+                <td>₹3,00,001 – ₹7,00,000</td>
+                <td>5%</td>
+                <td>Subject to Section 87A full tax rebate up to ₹7,00,000</td>
+              </tr>
+              <tr>
+                <td>₹7,00,001 – ₹10,00,000</td>
+                <td>10%</td>
+                <td>Marginal relief applies if income marginally exceeds ₹7L</td>
+              </tr>
+              <tr>
+                <td>₹10,00,001 – ₹12,00,000</td>
+                <td>15%</td>
+                <td>Standard slab</td>
+              </tr>
+              <tr>
+                <td>₹12,00,001 – ₹15,00,000</td>
+                <td>20%</td>
+                <td>Standard slab</td>
+              </tr>
+              <tr>
+                <td>Above ₹15,00,000</td>
+                <td>30%</td>
+                <td>Highest standard slab + 4% Health & Education Cess</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top: 0.75rem;">
+          <strong>Standard Deduction:</strong> ₹75,000 for salaried employees under New Tax Regime (increased from ₹50,000 in Budget 2024). Under Old Regime, standard deduction remains ₹50,000.
+        </p>
+      </section>
+
+      <!-- Section 4: Sources -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2 class="card-title" style="font-size: 1.4rem;">4. Authoritative Sources & Verification Dates</h2>
+        <ul style="padding-left: 1.5rem; line-height: 1.8; margin-top: 0.75rem;">
+          <li>
+            <a href="https://www.incometax.gov.in" target="_blank" rel="noopener noreferrer" class="text-emerald">Income Tax Department of India (incometax.gov.in)</a> — Tax slabs, Section 115BAC, Section 87A rebates (Verified: October 2026).
+          </li>
+          <li>
+            <a href="https://www.epfindia.gov.in" target="_blank" rel="noopener noreferrer" class="text-emerald">Employees' Provident Fund Organisation (epfindia.gov.in)</a> — Statutory EPF rates and guidelines (Verified: October 2026).
+          </li>
+          <li>
+            <a href="https://egazette.gov.in" target="_blank" rel="noopener noreferrer" class="text-emerald">The Gazette of India</a> — Finance Act 2024 enactments.
+          </li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <p>&copy; 2026 SalarySeed (Team Trinetra). Built for Bennett University CSET489 Milestone I.</p>
+    </div>
+  </footer>
+</body>
+</html>

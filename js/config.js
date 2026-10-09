@@ -1,21 +1,20 @@
 /**
  * SalarySeed Client Configuration
- * 
- * Replace placeholders below with your Supabase credentials, OR provide
- * VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in your local .env file.
- * 
- * SECURITY RULE:
- * Only use the public 'anon' key here. NEVER expose the service_role key!
+ * Automatically loads from:
+ * 1. Vite environment variables (import.meta.env)
+ * 2. Local development server environment variables (window.__ENV__)
+ * 3. Fallback placeholder
  */
 
-// Check if Vite environment variables exist, otherwise fallback to local configuration
 const viteUrl = typeof import.meta !== 'undefined' && import.meta.env?.VITE_SUPABASE_URL;
-const viteAnonKey = typeof import.meta !== 'undefined' && import.meta.env?.VITE_SUPABASE_ANON_KEY;
+const viteAnonKey = typeof import.meta !== 'undefined' && (import.meta.env?.VITE_SUPABASE_PUBLISHABLE_KEY || import.meta.env?.VITE_SUPABASE_ANON_KEY);
+
+const winUrl = typeof window !== 'undefined' && window.__ENV__?.VITE_SUPABASE_URL;
+const winAnonKey = typeof window !== 'undefined' && (window.__ENV__?.VITE_SUPABASE_PUBLISHABLE_KEY || window.__ENV__?.VITE_SUPABASE_ANON_KEY);
 
 export const SUPABASE_CONFIG = {
-  // Replace these placeholders with your actual Supabase project keys
-  url: viteUrl || "https://your-project-id.supabase.co",
-  anonKey: viteAnonKey || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.your-anon-key-placeholder",
+  url: viteUrl || winUrl || "https://your-project-id.supabase.co",
+  anonKey: viteAnonKey || winAnonKey || "your-anon-key-placeholder",
 };
 
 /**

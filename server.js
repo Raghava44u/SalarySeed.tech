@@ -23,10 +23,43 @@ const MIME_TYPES = {
   '.pdf': 'application/pdf',
 };
 
+function parseEnvFile() {
+  const envPath = path.join(__dirname, '.env');
+  const envVars = {};
+  if (fs.existsSync(envPath)) {
+    const lines = fs.readFileSync(envPath, 'utf8').split('\n');
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith('#')) continue;
+      const eqIdx = trimmed.indexOf('=');
+      if (eqIdx > 0) {
+        const key = trimmed.substring(0, eqIdx).trim();
+        const val = trimmed.substring(eqIdx + 1).trim();
+        envVars[key] = val;
+      }
+    }
+  }
+  return envVars;
+}
+
 const server = http.createServer((req, res) => {
-  // Parse URL pathname
   const parsedUrl = new URL(req.url, `http://${req.headers.host}`);
   let pathname = decodeURIComponent(parsedUrl.pathname);
+
+  // Dynamic /js/env.js serving to inject .env into browser safely
+  if (pathname === '/js/env.js') {
+    const envVars = parseEnvFile();
+    const publicEnv = {
+      VITE_SUPABASE_URL: envVars.VITE_SUPABASE_URL || '',
+      VITE_SUPABASE_PUBLISHABLE_KEY: envVars.VITE_SUPABASE_PUBLISHABLE_KEY || envVars.VITE_SUPABASE_ANON_KEY || '',
+      VITE_SUPABASE_ANON_KEY: envVars.VITE_SUPABASE_ANON_KEY || envVars.VITE_SUPABASE_PUBLISHABLE_KEY || '',
+      VITE_SITE_URL: envVars.VITE_SITE_URL || ''
+    };
+    const body = `window.__ENV__ = ${JSON.stringify(publicEnv)};`;
+    res.writeHead(200, { 'Content-Type': 'application/javascript; charset=UTF-8' });
+    res.end(body);
+    return;
+  }
 
   // Security: prevent directory traversal
   const safePath = path.normalize(pathname).replace(/^(\.\.[\/\\])+/, '');

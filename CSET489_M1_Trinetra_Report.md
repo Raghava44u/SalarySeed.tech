@@ -1,12 +1,23 @@
-# CSET489 Mini-Project — Milestone I Report
+<div align="center">
+
+# SalarySeed.tech
+### Milestone 1
+
+</div>
 
 ## Cover Page
 
-**Bennett University — School of Computer Science Engineering and Technology (SCSET)**  
-**Course:** CSET489 — Search Engine Optimization  
-**Programme / Semester:** B.Tech CSE, Semester VII, 2026–27  
-**Assessment:** Mini-Project, Milestone I – SEO Research, Analysis, Project Design & Deployment (20 marks)  
-**Course Facilitator:** Dr. Saumitra Gangwar  
+### Academic Details
+
+| Academic Field | Information |
+| :--- | :--- |
+| **Institution** | Bennett University — School of Computer Science Engineering and Technology (SCSET) |
+| **Course** | CSET489 — Search Engine Optimization |
+| **Programme / Semester** | B.Tech CSE, Semester VII, 2026–27 |
+| **Assessment** | Mini-Project, Milestone I – SEO Research, Analysis, Project Design & Deployment (20 marks) |
+| **Course Facilitator** | Dr. Saumitra Gangwar |
+
+### Project & Submission Details  
 
 | Field | Entry |
 | :--- | :--- |

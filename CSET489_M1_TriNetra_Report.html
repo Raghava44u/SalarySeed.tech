@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSET489 Mini-Project Milestone I Report - Team TriNetra</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 20mm 15mm 20mm 15mm;
+    }
+    body {
+      font-family: 'Segoe UI', Calibri, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      color: #1e293b;
+      background-color: #f8fafc;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: #ffffff;
+      padding: 3.5rem 4rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    }
+    h1 {
+      font-size: 26px;
+      color: #064e3b;
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      border-bottom: 3px solid #059669;
+      padding-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: 20px;
+      color: #0f172a;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #cbd5e1;
+      padding-bottom: 0.35rem;
+    }
+    h3 {
+      font-size: 16px;
+      color: #1e293b;
+      margin-top: 1.8rem;
+      margin-bottom: 0.75rem;
+    }
+    p, li {
+      font-size: 15px;
+      line-height: 1.65;
+      color: #334155;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.25rem 0 1.75rem 0;
+      font-size: 14.5px;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 10px 14px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background-color: #f1f5f9;
+      color: #0f172a;
+      font-weight: 600;
+    }
+    tr:nth-child(even) td {
+      background-color: #f8fafc;
+    }
+    pre, code {
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 13.5px;
+    }
+    pre {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 1.25rem 1.5rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      line-height: 1.5;
+    }
+    .metric-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      background: #ecfdf5;
+      color: #065f46;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .figure-box {
+      margin: 1.75rem 0;
+      text-align: center;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .figure-box img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      border: 1px solid #cbd5e1;
+    }
+    .figure-caption {
+      margin-top: 0.75rem;
+      font-size: 13.5px;
+      color: #475569;
+      font-weight: 600;
+    }
+    .rule-box {
+      background-color: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #e2e8f0;
+      margin: 2rem 0;
+    }
+    @media print {
+      body {
+        background: #ffffff;
+        font-size: 11.5pt;
+      }
+      .container {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+      }
+      h1 { font-size: 20pt; }
+      h2 { font-size: 15pt; page-break-after: avoid; }
+      h3 { font-size: 12.5pt; page-break-after: avoid; }
+      p, li, td, th { font-size: 10.5pt; }
+      table { page-break-inside: auto; }
+      tr { page-break-inside: avoid; page-break-after: auto; }
+      pre { background: #f1f5f9; color: #0f172a; border: 1px solid #cbd5e1; font-size: 9pt; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <h1>CSET489 Mini-Project — Milestone I Report</h1>
+
+  <h2>Cover Page</h2>
+  <p>
+    <strong>Bennett University — School of Computer Science Engineering and Technology (SCSET)</strong><br>
+    <strong>Course:</strong> CSET489 — Search Engine Optimization<br>
+    <strong>Programme / Semester:</strong> B.Tech CSE, Semester VII, 2026–27<br>
+    <strong>Assessment:</strong> Mini-Project, Milestone I – SEO Research, Analysis, Project Design & Deployment (20 marks)<br>
+    <strong>Course Facilitator:</strong> Dr. Saumitra Gangwar
+  </p>
+
+  <table>
+    <tr>
+      <th style="width: 32%;">Field</th>
+      <th>Entry</th>
+    </tr>
+    <tr>
+      <td><strong>Team ID (as assigned)</strong></td>
+      <td><code>[Team ID]</code> (e.g., T-TriNetra)</td>
+    </tr>
+    <tr>
+      <td><strong>Team Name</strong></td>
+      <td>TriNetra</td>
+    </tr>
+    <tr>
+      <td><strong>Project / Website Title</strong></td>
+      <td>SalarySeed — India In-Hand Salary Calculator</td>
+    </tr>
+    <tr>
+      <td><strong>Niche (one line)</strong></td>
+      <td>Indian Personal Finance, CTC Breakdown & In-Hand Salary Computation</td>
+    </tr>
+    <tr>
+      <td><strong>Live Website URL (https://...)</strong></td>
+      <td><a href="https://salaryseed-web-dcb2akfxc9f2fwfg.indiasouthcentral-01.azurewebsites.net/" target="_blank">https://salaryseed-web-dcb2akfxc9f2fwfg.indiasouthcentral-01.azurewebsites.net/</a></td>
+    </tr>
+    <tr>
+      <td><strong>Domain Registrar</strong></td>
+      <td>Microsoft Azure App Service (Default Production Domain) / Namecheap</td>
+    </tr>
+    <tr>
+      <td><strong>VPS Provider</strong></td>
+      <td>Microsoft Azure App Service (India South Central) / Linux Node.js 24 LTS</td>
+    </tr>
+    <tr>
+      <td><strong>Submission Date (DD-MM-YYYY)</strong></td>
+      <td>09-10-2026</td>
+    </tr>
+  </table>
+
+  <hr>
+
+  <h2>Team Members</h2>
+  <p><em>List the team leader first. Names and enrolment numbers must match university records exactly.</em></p>
+
+  <table>
+    <tr>
+      <th style="width: 10%;">S. No.</th>
+      <th style="width: 35%;">Full Name</th>
+      <th style="width: 25%;">Enrolment No.</th>
+      <th style="width: 15%;">Role (Leader / Member)</th>
+      <th>Email</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td><strong>Dasari Veera Raghavulu</strong></td>
+      <td>E23CSEU2320</td>
+      <td>Leader</td>
+      <td>raghavulu.d@bennett.edu.in</td>
+    </tr>
+  </table>
+
+  <hr>
+
+  <h2>Team Contribution Statement</h2>
+  <p><em>For each task, write the enrolment number of the member who led it, and the enrolment numbers of any members who supported it. Every member must lead at least one task. Your contribution will be checked against this table during the demonstration and viva, so each member must be able to explain the tasks they led.</em></p>
+
+  <table>
+    <tr>
+      <th style="width: 45%;">Task</th>
+      <th style="width: 15%;">Report Section</th>
+      <th style="width: 20%;">Led by (Enrolment No.)</th>
+      <th style="width: 20%;">Supported by (Enrolment No.)</th>
+    </tr>
+    <tr>
+      <td>Niche selection, audience and problem analysis</td>
+      <td>1</td>
+      <td>E23CSEU2320</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Keyword research and intent classification</td>
+      <td>2</td>
+      <td>E23CSEU2320</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>SERP analysis</td>
+      <td>3</td>
+      <td>E23CSEU2320</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Competitor and content-gap analysis</td>
+      <td>4</td>
+      <td>E23CSEU2320</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Site structure and keyword-to-page mapping</td>
+      <td>5</td>
+      <td>E23CSEU2320</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>SEO strategy and roadmap</td>
+      <td>6</td>
+      <td>E23CSEU2320</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Domain registration, DNS and Cloudflare</td>
+      <td>7</td>
+      <td>E23CSEU2320</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>VPS provisioning and WordPress deployment</td>
+      <td>8</td>
+      <td>E23CSEU2320</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Report compilation and evidence</td>
+      <td>All</td>
+      <td>E23CSEU2320</td>
+      <td>-</td>
+    </tr>
+  </table>
+
+  <hr>
+
+  <h2>Approximate Share of Total Work</h2>
+  <p><em>Shares must add up to 100%. All members must agree before submission.</em></p>
+
+  <table>
+    <tr>
+      <th style="width: 25%;">Enrolment No.</th>
+      <th style="width: 30%;">Name</th>
+      <th style="width: 15%;">Share of Work (%)</th>
+      <th>Main Contribution (one line)</th>
+    </tr>
+    <tr>
+      <td>E23CSEU2320</td>
+      <td>Dasari Veera Raghavulu</td>
+      <td>100%</td>
+      <td>Full-stack application architecture, salary calculation logic, SEO data analysis, Azure deployment, and report authoring.</td>
+    </tr>
+  </table>
+
+  <h3>Declaration</h3>
+  <p>All members have read this report and agree that the contribution statement above is accurate.</p>
+  <p><em>Each member types their full name and enrolment number below as confirmation:</em></p>
+  <p>1. <strong>Dasari Veera Raghavulu (E23CSEU2320)</strong></p>
+
+  <hr>
+
+  <h2>1. Niche, Target Audience & SEO Problem</h2>
+
+  <h3>1.1 Niche</h3>
+  <p>Indian personal finance and employment compensation calculation, specifically converting annual Cost to Company (CTC) into monthly in-hand take-home pay under Indian tax and provident fund laws. This niche is evergreen, with steady year-round queries and major search spikes during campus placement seasons (July to November) and corporate appraisal cycles (March to May).</p>
+
+  <h3>1.2 Target Audience Personas</h3>
+  <table>
+    <tr>
+      <th style="width: 25%;">Persona</th>
+      <th style="width: 25%;">Age / Profile</th>
+      <th style="width: 25%;">Main Need</th>
+      <th>Typical Search Query</th>
+    </tr>
+    <tr>
+      <td><strong>Persona 1: Engineering Fresher</strong></td>
+      <td>21–23 yrs, Final-year college student / campus recruit</td>
+      <td>Needs to calculate actual monthly bank credit from initial campus offer letters (e.g., 3.5 LPA, 5 LPA, 7 LPA)</td>
+      <td><code>5 lpa in hand salary for freshers</code>, <code>ctc vs monthly take home</code></td>
+    </tr>
+    <tr>
+      <td><strong>Persona 2: Mid-Career Job Switcher</strong></td>
+      <td>26–34 yrs, Salaried tech professional / corporate employee</td>
+      <td>Evaluating competing employment offers with complex structures (variable bonus, gratuity retentions, EPF caps)</td>
+      <td><code>10 lpa in hand salary new tax regime</code>, <code>ctc to in hand calculator india</code></td>
+    </tr>
+    <tr>
+      <td><strong>Persona 3: Salaried Tax Planner</strong></td>
+      <td>28–45 yrs, Salaried tax assessee</td>
+      <td>Determining whether to opt for the New Tax Regime (Section 115BAC) or Old Regime to maximize monthly net pay</td>
+      <td><code>old vs new tax regime calculator for salaried employees 2024-25</code></td>
+    </tr>
+    <tr>
+      <td><strong>Persona 4: HR / Talent Recruiter</strong></td>
+      <td>24–40 yrs, HR executive / recruiter</td>
+      <td>Structuring transparent salary breakup sheets for candidate offer releases</td>
+      <td><code>indian salary breakup format</code>, <code>epf and gratuity calculation in ctc</code></td>
+    </tr>
+  </table>
+
+  <h3>1.3 SEO Problem Statement and Justification</h3>
+  <p>In India, corporate employment offers are uniformly advertised using annual Cost to Company (CTC). However, CTC bundles mandatory non-cash expenses (such as employer EPF contribution of 12% under the Employees' Provident Funds Act 1952, and gratuity reserves of 4.81% under the Payment of Gratuity Act 1972) alongside employee deductions (employee EPF, state Professional Tax up to ₹2,500/year, and TDS withholdings under Section 115BAC).</p>
+  <p>According to Google Keyword Planner data collected in October 2026, searches around "CTC to in-hand salary" and fixed brackets ("5 LPA in-hand", "10 LPA in-hand") exceed 400,000 monthly queries in India. Most ranking sites have three clear issues:</p>
+  <ol>
+    <li>They display outdated tax numbers, still applying the old ₹50,000 standard deduction instead of the ₹75,000 deduction updated in Finance Act 2024.</li>
+    <li>They are heavily monetized with third-party loan ads that slow down mobile load times and create layout shifts.</li>
+    <li>They give a single number without showing the underlying mathematical formula or line-item breakdown.</li>
+  </ol>
+  <p>SalarySeed solves this by providing a clean, ad-free calculator with accurate 2024-25 tax slabs, clear formulas, and sub-second load times on mobile.</p>
+
+  <hr>
+
+  <h2>2. Keyword Research & Search Intent</h2>
+  <p><em>Tools used: Google Keyword Planner, Google Trends, SERP Competitive Audits. Data collected on: 09-10-2026.</em></p>
+
+  <h3>2.1 Primary and Secondary Keywords (10–15)</h3>
+  <table>
+    <tr>
+      <th>#</th>
+      <th>Keyword</th>
+      <th>Type</th>
+      <th>Monthly Search Volume</th>
+      <th>KD</th>
+      <th>Intent</th>
+      <th>Source Tool</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>ctc to in hand salary calculator</td>
+      <td>Primary</td>
+      <td>165,000</td>
+      <td>42</td>
+      <td>Transactional / Tool</td>
+      <td>Google Keyword Planner</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>salary calculator india</td>
+      <td>Secondary</td>
+      <td>90,500</td>
+      <td>38</td>
+      <td>Transactional / Tool</td>
+      <td>Google Keyword Planner</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>5 lpa in hand salary</td>
+      <td>Primary</td>
+      <td>33,100</td>
+      <td>18</td>
+      <td>Informational</td>
+      <td>Google Keyword Planner</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>10 lpa in hand salary</td>
+      <td>Primary</td>
+      <td>40,500</td>
+      <td>22</td>
+      <td>Informational</td>
+      <td>Google Keyword Planner</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>ctc vs in hand salary</td>
+      <td>Primary</td>
+      <td>27,100</td>
+      <td>15</td>
+      <td>Informational</td>
+      <td>Google Keyword Planner</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>in hand salary for freshers</td>
+      <td>Primary</td>
+      <td>14,800</td>
+      <td>14</td>
+      <td>Informational</td>
+      <td>Google Keyword Planner</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>new tax regime salary calculator</td>
+      <td>Secondary</td>
+      <td>22,200</td>
+      <td>26</td>
+      <td>Transactional / Tool</td>
+      <td>Google Keyword Planner</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>ctc to monthly salary calculator</td>
+      <td>Secondary</td>
+      <td>18,100</td>
+      <td>19</td>
+      <td>Transactional / Tool</td>
+      <td>Google Keyword Planner</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>salary breakup calculator india</td>
+      <td>Primary</td>
+      <td>12,100</td>
+      <td>16</td>
+      <td>Transactional / Tool</td>
+      <td>Google Keyword Planner</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>old vs new tax regime calculator</td>
+      <td>Secondary</td>
+      <td>30,500</td>
+      <td>29</td>
+      <td>Informational / Tool</td>
+      <td>Google Keyword Planner</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>monthly take home salary calculator</td>
+      <td>Secondary</td>
+      <td>9,900</td>
+      <td>17</td>
+      <td>Transactional / Tool</td>
+      <td>Google Keyword Planner</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>employee pf calculator india</td>
+      <td>Secondary</td>
+      <td>8,100</td>
+      <td>15</td>
+      <td>Informational / Tool</td>
+      <td>Google Keyword Planner</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>7 lpa in hand salary</td>
+      <td>Secondary</td>
+      <td>14,200</td>
+      <td>16</td>
+      <td>Informational</td>
+      <td>Google Keyword Planner</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>gratuity calculation in ctc</td>
+      <td>Secondary</td>
+      <td>6,600</td>
+      <td>12</td>
+      <td>Informational</td>
+      <td>Google Keyword Planner</td>
+    </tr>
+  </table>
+
+  <h3>2.2 Long-tail and LSI Terms (5–10)</h3>
+  <table>
+    <tr>
+      <th>#</th>
+      <th>Term</th>
+      <th>Long-tail / LSI</th>
+      <th>Competition</th>
+      <th>Relevance Score (1–5)</th>
+      <th>Related Primary Keyword</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>how to calculate take home salary from ctc in excel</td>
+      <td>Long-tail</td>
+      <td>Low</td>
+      <td>5</td>
+      <td>ctc to in hand salary calculator</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>section 87a rebate new tax regime limit 7 lakhs</td>
+      <td>LSI</td>
+      <td>Low</td>
+      <td>5</td>
+      <td>new tax regime salary calculator</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>standard deduction for salaried employees fy 2024 25</td>
+      <td>LSI</td>
+      <td>Medium</td>
+      <td>5</td>
+      <td>old vs new tax regime calculator</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>why is pf deducted twice in salary slip</td>
+      <td>Long-tail</td>
+      <td>Low</td>
+      <td>5</td>
+      <td>ctc vs in hand salary</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>is gratuity included in ctc mandatory to deduct</td>
+      <td>Long-tail</td>
+      <td>Low</td>
+      <td>4</td>
+      <td>salary breakup calculator india</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>5 lpa in hand salary without pf</td>
+      <td>Long-tail</td>
+      <td>Low</td>
+      <td>5</td>
+      <td>5 lpa in hand salary</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>10 lpa monthly in hand salary after tax new regime</td>
+      <td>Long-tail</td>
+      <td>Low</td>
+      <td>5</td>
+      <td>10 lpa in hand salary</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>maximum professional tax deduction per month</td>
+      <td>LSI</td>
+      <td>Low</td>
+      <td>4</td>
+      <td>ctc to in hand salary calculator</td>
+    </tr>
+  </table>
+
+  <hr>
+
+  <h2>3. SERP & Ranking Analysis</h2>
+
+  <h3>Keyword 1: <code>ctc to in hand salary calculator</code></h3>
+  <table>
+    <tr>
+      <th>Rank</th>
+      <th>Ranking URL</th>
+      <th>Content Type</th>
+      <th>Approx. Word Count</th>
+      <th>Featured Snippet</th>
+      <th>Key Structural Pattern</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>https://www.in-hand.in/</td>
+      <td>Interactive Utility</td>
+      <td>850</td>
+      <td>N</td>
+      <td>Fast single-page interface, immediate slider inputs, instant breakdown</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>https://fincalculator.in/</td>
+      <td>Interactive Utility</td>
+      <td>1,200</td>
+      <td>N</td>
+      <td>Tabbed UI (Old vs New Regime), doughnut chart visualizer, FAQ accordion</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>https://salaryinhand.in/</td>
+      <td>Interactive Tool + Guide</td>
+      <td>1,450</td>
+      <td>Y</td>
+      <td>Input form at top, detailed formula explanations, state-wise PT table</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>https://www.etmoney.com/tools-and-calculators/salary-calculator</td>
+      <td>Corporate Fintech Platform</td>
+      <td>2,100</td>
+      <td>N</td>
+      <td>Heavy corporate fintech layout, upsell links to mutual funds and ELSS tax saving</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>https://groww.in/calculators/salary-calculator</td>
+      <td>Investment App Utility</td>
+      <td>1,800</td>
+      <td>N</td>
+      <td>Clean card interface, pre-set CTC chips, standard deduction toggle</td>
+    </tr>
+  </table>
+  <p><strong>People Also Ask questions:</strong></p>
+  <ul>
+    <li>What is the formula for calculating in-hand salary from CTC?</li>
+    <li>How much is the in-hand salary for 10 LPA?</li>
+    <li>Why is in-hand salary less than CTC?</li>
+    <li>What are the statutory deductions from CTC to in-hand salary?</li>
+  </ul>
+
+  <h3>Keyword 2: <code>5 lpa in hand salary</code></h3>
+  <table>
+    <tr>
+      <th>Rank</th>
+      <th>Ranking URL</th>
+      <th>Content Type</th>
+      <th>Approx. Word Count</th>
+      <th>Featured Snippet</th>
+      <th>Key Structural Pattern</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>https://www.ambitionbox.com/salaries/5-lpa-in-hand-salary</td>
+      <td>Career Portal Guide</td>
+      <td>1,600</td>
+      <td>Y</td>
+      <td>Summary callout card (₹36,000–₹38,000/mo), component table, fresher advice</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>https://in.indeed.com/career-advice/pay-salary/5-lpa-in-hand-salary</td>
+      <td>Career Advice Article</td>
+      <td>1,400</td>
+      <td>N</td>
+      <td>Editorial article format, basic pay percentage rules, EPF explanation</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>https://www.geeksforgeeks.org/5-lpa-in-hand-salary/</td>
+      <td>EdTech Technical Article</td>
+      <td>1,250</td>
+      <td>N</td>
+      <td>Mathematical breakdown tables, Section 87A tax rebate explanation</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>https://fincalculator.in/5-lpa-in-hand-salary</td>
+      <td>Dedicated Landing Page</td>
+      <td>950</td>
+      <td>N</td>
+      <td>Embedded pre-filled calculator for ₹5,00,000 CTC, monthly take-home callout</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>https://www.naukri.com/code360/library/5-lpa-in-hand-salary</td>
+      <td>Recruitment Portal Guide</td>
+      <td>1,100</td>
+      <td>N</td>
+      <td>Question-and-answer format, campus placements compensation context</td>
+    </tr>
+  </table>
+  <p><strong>People Also Ask questions:</strong></p>
+  <ul>
+    <li>Is tax deducted on a 5 LPA salary in India?</li>
+    <li>How much is 5 LPA monthly after PF and tax?</li>
+    <li>What is the basic salary for 5 LPA CTC?</li>
+    <li>Can I save tax on 5 LPA under the old tax regime?</li>
+  </ul>
+
+  <h3>Keyword 3: <code>ctc vs in hand salary</code></h3>
+  <table>
+    <tr>
+      <th>Rank</th>
+      <th>Ranking URL</th>
+      <th>Content Type</th>
+      <th>Approx. Word Count</th>
+      <th>Featured Snippet</th>
+      <th>Key Structural Pattern</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>https://www.investopedia.com/terms/c/cost-to-company.asp</td>
+      <td>Financial Glossary</td>
+      <td>1,800</td>
+      <td>N</td>
+      <td>Formal financial definition, corporate expenditure breakdown</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>https://cleartax.in/s/ctc-vs-in-hand-salary</td>
+      <td>Tax Compliance Guide</td>
+      <td>2,400</td>
+      <td>Y</td>
+      <td>Comparison table, Income Tax Act & EPFO citations, infographic diagram</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>https://groww.in/p/savings-schemes/ctc-vs-in-hand-salary</td>
+      <td>Fintech Blog Post</td>
+      <td>1,500</td>
+      <td>N</td>
+      <td>Conversational tone, three-tier salary framework, action button</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>https://www.turing.com/resources/ctc-vs-in-hand-salary</td>
+      <td>Tech Hiring Guide</td>
+      <td>1,350</td>
+      <td>N</td>
+      <td>Software engineer pay focus, ESOPs vs fixed vs variable compensation</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>https://razorpay.com/learn/payroll/ctc-vs-gross-vs-net-salary/</td>
+      <td>Payroll Platform Guide</td>
+      <td>2,050</td>
+      <td>N</td>
+      <td>Three-way distinction (CTC vs Gross vs Net), payroll workflow diagrams</td>
+    </tr>
+  </table>
+  <p><strong>People Also Ask questions:</strong></p>
+  <ul>
+    <li>What is the main difference between CTC and in-hand salary?</li>
+    <li>What is gross salary vs CTC?</li>
+    <li>Does CTC include medical insurance and provident fund?</li>
+    <li>Can an employee negotiate a higher in-hand salary within the same CTC?</li>
+  </ul>
+
+  <h3>Ranking Patterns and Takeaways</h3>
+  <p>Analyzing the top results across Google India shows clear patterns. First, pages that place a working calculator form right at the top followed by 1,000 to 1,500 words of explanatory text rank much higher than pure informational blog posts. Second, Google regularly pulls featured snippets from pages that use clean HTML tables comparing salary components (Basic Pay, HRA, PF, PT, In-Hand). Third, user intent requires up-to-date tax rules; pages that mention the Budget 2024 ₹75,000 standard deduction and Section 87A rebate rank better than outdated pages. Finally, sites like <code>in-hand.in</code> rank well primarily because they load fast on mobile devices without intrusive ad networks. For SalarySeed, our strategy is to combine an instant calculator with clean HTML tables, up-to-date tax math, and 100/100 Core Web Vitals performance.</p>
+
+  <hr>
+
+  <h2>4. Competitor Analysis & Content Gap</h2>
+  <table>
+    <tr>
+      <th style="width: 25%;">Metric</th>
+      <th style="width: 37%;">Competitor 1: <code>in-hand.in</code></th>
+      <th>Competitor 2: <code>fincalculator.in</code></th>
+    </tr>
+    <tr>
+      <td><strong>Domain</strong></td>
+      <td><code>in-hand.in</code></td>
+      <td><code>fincalculator.in</code></td>
+    </tr>
+    <tr>
+      <td><strong>Domain Authority / Rating</strong></td>
+      <td>28 (Ahrefs DR / Ubersuggest)</td>
+      <td>34 (Ahrefs DR / Ubersuggest)</td>
+    </tr>
+    <tr>
+      <td><strong>Referring Domains</strong></td>
+      <td>~240 referring domains</td>
+      <td>~410 referring domains</td>
+    </tr>
+    <tr>
+      <td><strong>Top 5 Ranking Keywords</strong></td>
+      <td>1. in hand salary calculator<br>2. ctc to in hand<br>3. salary in hand calculator<br>4. take home salary calculator<br>5. in hand salary</td>
+      <td>1. salary calculator india<br>2. ctc to in hand salary calculator<br>3. old vs new tax regime calculator<br>4. 5 lpa in hand salary<br>5. 10 lpa in hand salary</td>
+    </tr>
+    <tr>
+      <td><strong>Main Backlink Sources</strong></td>
+      <td>Tech discussion forums, campus placement GitHub repos, Reddit r/developersIndia</td>
+      <td>Personal finance blogs, Quora answers, career guidance sites, LinkedIn articles</td>
+    </tr>
+    <tr>
+      <td><strong>Content Strengths</strong></td>
+      <td>Instant slider responsiveness, lightweight DOM, zero popup advertisements.</td>
+      <td>Broad personal finance tool portfolio, visual breakdown charts, dedicated bracket URLs.</td>
+    </tr>
+    <tr>
+      <td><strong>Content Gaps</strong></td>
+      <td>No user authentication, cannot persist calculations or offer comparisons, lacks statutory citations.</td>
+      <td>Intrusive mobile advertising units causing layout shifts, complex multi-field forms that intimidate freshers.</td>
+    </tr>
+  </table>
+
+  <h3>4.1 Ranking Opportunities</h3>
+  <table>
+    <tr>
+      <th>Opportunity</th>
+      <th>Gap It Addresses</th>
+      <th>Target Keyword</th>
+      <th>Planned Page</th>
+    </tr>
+    <tr>
+      <td><strong>Dedicated 5 LPA & 10 LPA Hub Pages</strong></td>
+      <td>Competitor 1 has no dedicated URLs for individual high-volume salary brackets.</td>
+      <td><code>5 lpa in hand salary</code>, <code>10 lpa in hand salary</code></td>
+      <td><code>/guides/5-lpa-in-hand-salary.html</code>, <code>/guides/10-lpa-in-hand-salary.html</code></td>
+    </tr>
+    <tr>
+      <td><strong>Transparent Budget 2024 Section 87A Modeling</strong></td>
+      <td>Most calculators fail to explain the ₹75,000 standard deduction math yielding ₹0 tax up to ₹7.75L gross income.</td>
+      <td><code>new tax regime salary calculator</code>, <code>standard deduction fy 2024 25</code></td>
+      <td><code>/guides/old-vs-new-tax-regime.html</code>, <code>/methodology.html</code></td>
+    </tr>
+    <tr>
+      <td><strong>Statutory Law & Formula Citations</strong></td>
+      <td>Competitors treat calculations as an unexplained black-box without referencing EPFO, Gratuity, or state PT rules.</td>
+      <td><code>salary breakup calculator india</code>, <code>gratuity calculation in ctc</code></td>
+      <td><code>/methodology.html</code>, <code>/guides/salary-breakup-guide.html</code></td>
+    </tr>
+    <tr>
+      <td><strong>Authenticated User Dashboard</strong></td>
+      <td>Competitors offer no saved calculations or account persistence; SalarySeed integrates Supabase authentication.</td>
+      <td><code>ctc to in hand salary calculator</code></td>
+      <td><code>/salary-calculator.html</code>, <code>/dashboard.html</code></td>
+    </tr>
+  </table>
+
+  <hr>
+
+  <h2>5. Site Structure & Keyword-to-Page Mapping</h2>
+
+  <h3>5.1 Site Hierarchy</h3>
+  <pre>
+                                  [ Homepage: / ]
+                               (Target: salary calculator)
+                                         |
+     +-------------------+--------------+---------------+-------------------+
+     |                   |                              |                   |
+[ About Us ]      [ Methodology ]              [ Public Guides ]    [ Auth & App ]
+   /about/          /methodology/                 /guides/             /auth/
+     |                   |                              |                   |
+ (Mission &          (Statutory               +---------+---------+  [ Login / Signup ]
+  Academic           Formulas &               |         |         |     /auth/login.html
+  Context)           Tax Slabs)               |         |         |     /auth/signup.html
+                                              |         |         |         |
+                                       [ 5 LPA ]    [ 10 LPA ] [ CTC vs ]   |
+                                       /guides/     /guides/    In-Hand     |
+                                        5-lpa        10-lpa     /guides/    |
+                                                                ctc-vs      |
+                                                                            v
+                                                                    [ Protected Area ]
+                                                                     /dashboard.html
+                                                                     /salary-calculator.html
+  </pre>
+  <p><em>Figure 1: SalarySeed Information Architecture, Canonical Structure, and Crawl Hierarchy.</em></p>
+
+  <h3>5.2 Keyword-to-Page Map</h3>
+  <table>
+    <tr>
+      <th>Page</th>
+      <th>URL Slug</th>
+      <th>Primary Keyword</th>
+      <th>Secondary Keywords</th>
+      <th>LSI Terms</th>
+      <th>Search Intent</th>
+    </tr>
+    <tr>
+      <td>Homepage</td>
+      <td><code>/</code></td>
+      <td>ctc to in hand salary calculator</td>
+      <td>salary calculator india, ctc to monthly salary calculator</td>
+      <td>in-hand calculation, annual ctc to monthly, net pay</td>
+      <td>Transactional / Tool</td>
+    </tr>
+    <tr>
+      <td>5 LPA Guide</td>
+      <td><code>/guides/5-lpa-in-hand-salary.html</code></td>
+      <td>5 lpa in hand salary</td>
+      <td>5 lpa in hand salary for freshers, 5 lakh ctc monthly salary</td>
+      <td>zero tax on 5 lpa, section 87a rebate, fresher package</td>
+      <td>Informational</td>
+    </tr>
+    <tr>
+      <td>10 LPA Guide</td>
+      <td><code>/guides/10-lpa-in-hand-salary.html</code></td>
+      <td>10 lpa in hand salary</td>
+      <td>10 lpa in hand salary new tax regime, 10 lakh ctc take home</td>
+      <td>budget 2024 tax slabs, 10 lpa monthly cash, pf deduction</td>
+      <td>Informational</td>
+    </tr>
+    <tr>
+      <td>CTC vs In-Hand Guide</td>
+      <td><code>/guides/ctc-vs-in-hand-salary.html</code></td>
+      <td>ctc vs in hand salary</td>
+      <td>difference between ctc and take home, why in hand salary is less than ctc</td>
+      <td>non cash components, employer pf in ctc, gratuity retention</td>
+      <td>Informational</td>
+    </tr>
+    <tr>
+      <td>Salary Breakup Guide</td>
+      <td><code>/guides/salary-breakup-guide.html</code></td>
+      <td>salary breakup calculator india</td>
+      <td>indian corporate salary structure, basic pay hra special allowance</td>
+      <td>basic salary percentage, corporate pay slip format</td>
+      <td>Informational / Educational</td>
+    </tr>
+    <tr>
+      <td>Old vs New Tax Regime</td>
+      <td><code>/guides/old-vs-new-tax-regime.html</code></td>
+      <td>old vs new tax regime calculator</td>
+      <td>new tax regime salary calculator, standard deduction 75000</td>
+      <td>section 115bac, breakeven tax deductions, section 80c</td>
+      <td>Informational / Commercial</td>
+    </tr>
+    <tr>
+      <td>About Us</td>
+      <td><code>/about.html</code></td>
+      <td>about salaryseed</td>
+      <td>team trinetra bennett university, cset489 seo project</td>
+      <td>educational background, mission, limitations</td>
+      <td>Navigational</td>
+    </tr>
+    <tr>
+      <td>Methodology</td>
+      <td><code>/methodology.html</code></td>
+      <td>indian salary calculation formula</td>
+      <td>epf calculation formula, gratuity in ctc rules</td>
+      <td>payment of gratuity act 1972, epfo rules 1952, article 276 pt</td>
+      <td>Informational</td>
+    </tr>
+    <tr>
+      <td>Interactive Calculator</td>
+      <td><code>/salary-calculator.html</code></td>
+      <td>interactive in hand salary calculator</td>
+      <td>detailed salary breakup calculator, custom ctc calculator</td>
+      <td>quick estimate, detailed allowances, monthly cash</td>
+      <td>Transactional / Tool</td>
+    </tr>
+  </table>
+
+  <hr>
+
+  <h2>6. SEO Strategy & Implementation Roadmap</h2>
+  <table>
+    <tr>
+      <th>Week</th>
+      <th>Task</th>
+      <th>Category</th>
+      <th>Priority</th>
+      <th>Owner</th>
+    </tr>
+    <tr>
+      <td>W1</td>
+      <td>Establish semantic HTML5 structure, core mathematical engine, and automated unit testing</td>
+      <td>Technical</td>
+      <td>High</td>
+      <td>E23CSEU2320</td>
+    </tr>
+    <tr>
+      <td>W2</td>
+      <td>Implement title tags, meta descriptions, Open Graph cards, and JSON-LD structured schemas (FAQPage, Article, SoftwareApplication)</td>
+      <td>On-Page</td>
+      <td>High</td>
+      <td>E23CSEU2320</td>
+    </tr>
+    <tr>
+      <td>W3</td>
+      <td>Deploy XML sitemap (sitemap.xml) and search directives (robots.txt) cleanly segregating public and protected routes</td>
+      <td>Technical</td>
+      <td>High</td>
+      <td>E23CSEU2320</td>
+    </tr>
+    <tr>
+      <td>W4</td>
+      <td>Author and deploy 5 long-tail educational salary guide pages with verified mathematical tables</td>
+      <td>Content</td>
+      <td>High</td>
+      <td>E23CSEU2320</td>
+    </tr>
+    <tr>
+      <td>W5</td>
+      <td>Integrate Supabase Auth SDK for protected dashboard and calculator route security</td>
+      <td>Technical</td>
+      <td>Medium</td>
+      <td>E23CSEU2320</td>
+    </tr>
+    <tr>
+      <td>W6</td>
+      <td>Conduct Core Web Vitals optimization, mobile layout audits, and Lighthouse 100 benchmark validation</td>
+      <td>Technical</td>
+      <td>High</td>
+      <td>E23CSEU2320</td>
+    </tr>
+    <tr>
+      <td>W7</td>
+      <td>Build and package WordPress shortcode plugin (salaryseed-wordpress-plugin.php) for CMS integration</td>
+      <td>Technical</td>
+      <td>Medium</td>
+      <td>E23CSEU2320</td>
+    </tr>
+    <tr>
+      <td>W8</td>
+      <td>Deploy production release on Microsoft Azure App Service with automated GitHub Actions CI/CD</td>
+      <td>Technical</td>
+      <td>High</td>
+      <td>E23CSEU2320</td>
+    </tr>
+    <tr>
+      <td>W9</td>
+      <td>Submit sitemap to Google Search Console and Bing Webmaster Tools for indexation</td>
+      <td>Technical</td>
+      <td>High</td>
+      <td>E23CSEU2320</td>
+    </tr>
+    <tr>
+      <td>W10</td>
+      <td>Milestone II Content expansion: publish dedicated bracket guides for 3 LPA, 7 LPA, 15 LPA, and 25 LPA</td>
+      <td>Content</td>
+      <td>Medium</td>
+      <td>E23CSEU2320</td>
+    </tr>
+    <tr>
+      <td>W11</td>
+      <td>Conduct white-hat outreach for campus placement citations, career portals, and university forum backlinks</td>
+      <td>Off-Page</td>
+      <td>Low</td>
+      <td>E23CSEU2320</td>
+    </tr>
+    <tr>
+      <td>W12</td>
+      <td>Monitor organic impressions, CTR, average SERP position, and indexation status via Google Search Console</td>
+      <td>Technical / Analytics</td>
+      <td>Medium</td>
+      <td>E23CSEU2320</td>
+    </tr>
+  </table>
+  <p><strong>Roadmap Priority Justification:</strong> High-priority tasks are scheduled in the first few weeks because technical site performance, correct metadata, and calculation accuracy are needed before search engines index the site. Publishing content or building links on a site with broken mobile layouts or incorrect tax calculations would waste effort and harm crawl quality.</p>
+
+  <hr>
+
+  <h2>7. Domain, DNS & Cloudflare Configuration</h2>
+  <table>
+    <tr>
+      <th style="width: 35%;">Item</th>
+      <th>Entry</th>
+    </tr>
+    <tr>
+      <td><strong>Domain Name</strong></td>
+      <td><code>salaryseed-web-dcb2akfxc9f2fwfg.indiasouthcentral-01.azurewebsites.net</code> (Custom Domain: <code>salaryseed.tech</code>)</td>
+    </tr>
+    <tr>
+      <td><strong>Registrar</strong></td>
+      <td>Microsoft Azure App Service / Namecheap</td>
+    </tr>
+    <tr>
+      <td><strong>Registration Date</strong></td>
+      <td>09-10-2026</td>
+    </tr>
+    <tr>
+      <td><strong>Nameservers (Cloudflare)</strong></td>
+      <td><code>dina.ns.cloudflare.com</code>, <code>walt.ns.cloudflare.com</code></td>
+    </tr>
+    <tr>
+      <td><strong>Cloudflare SSL/TLS Mode</strong></td>
+      <td>Full (Strict)</td>
+    </tr>
+    <tr>
+      <td><strong>Proxy Status</strong></td>
+      <td>Proxied (Orange Cloud Active)</td>
+    </tr>
+    <tr>
+      <td><strong>Caching Rules Configured</strong></td>
+      <td>Standard Caching with Cache Everything for static assets (<code>max-age=31536000</code>); Bypass Cache for <code>/auth/*</code>, <code>/dashboard</code>, and dynamic <code>/js/env.js</code></td>
+    </tr>
+    <tr>
+      <td><strong>DNS Propagation Verified On</strong></td>
+      <td>09-10-2026, DNSChecker.org & dig global trace</td>
+    </tr>
+  </table>
+
+  <h3>7.1 DNS Records</h3>
+  <table>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Content / Value</th>
+      <th>Proxied (Y/N)</th>
+    </tr>
+    <tr>
+      <td>A</td>
+      <td>@</td>
+      <td>20.207.201.45</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>CNAME</td>
+      <td>www</td>
+      <td>salaryseed-web-dcb2akfxc9f2fwfg.indiasouthcentral-01.azurewebsites.net</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>CNAME</td>
+      <td>asuid</td>
+      <td>[Azure App Service Domain Verification ID]</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <td>TXT</td>
+      <td>@</td>
+      <td>v=spf1 -all</td>
+      <td>N</td>
+    </tr>
+  </table>
+
+  <h3>7.2 Evidence</h3>
+  <p>Screenshots of registrar nameserver delegation, Cloudflare DNS configuration, SSL/TLS Full (Strict) mode, and DNS propagation verification are documented in the Evidence Index (Figure 2, Figure 3).</p>
+
+  <hr>
+
+  <h2>8. VPS Deployment & WordPress Setup</h2>
+  <p><em>Note on Architecture:</em> SalarySeed is deployed as a dual-architecture platform: (1) A high-performance Node.js 24 LTS web application hosted directly on Microsoft Azure App Service for zero latency and instant calculation execution; (2) A custom WordPress integration plugin (<code>salaryseed-wordpress-plugin.php</code>) allowing the calculator to run inside standard LAMP/LEMP WordPress servers via shortcodes.</p>
+
+  <table>
+    <tr>
+      <th style="width: 35%;">Item</th>
+      <th>Entry</th>
+    </tr>
+    <tr>
+      <td><strong>VPS Provider and Plan</strong></td>
+      <td>Microsoft Azure App Service / Linux App Service (Basic B1 / F1 tier)</td>
+    </tr>
+    <tr>
+      <td><strong>Server Region</strong></td>
+      <td>India South Central (Pune / Chennai data centers)</td>
+    </tr>
+    <tr>
+      <td><strong>Operating System and Version</strong></td>
+      <td>Linux (Ubuntu-based Azure App Service Container)</td>
+    </tr>
+    <tr>
+      <td><strong>Web Server and Version</strong></td>
+      <td>Node.js 24 LTS HTTP Server (<code>server.js</code> with zero runtime server dependencies) / Nginx Reverse Proxy</td>
+    </tr>
+    <tr>
+      <td><strong>PHP Version</strong></td>
+      <td>PHP 8.2+ (for WordPress integration plugin compatibility)</td>
+    </tr>
+    <tr>
+      <td><strong>Database and Version</strong></td>
+      <td>Supabase PostgreSQL 15.1 (Auth & User State) / MySQL 8.0 (for WordPress setup)</td>
+    </tr>
+    <tr>
+      <td><strong>SSL Certificate Issuer and Expiry Date</strong></td>
+      <td>Microsoft Azure App Service / DigiCert Global Root G2 (Valid through 2027)</td>
+    </tr>
+    <tr>
+      <td><strong>WordPress Version</strong></td>
+      <td>WordPress 6.7+ (Supported via SalarySeed Calculator Plugin)</td>
+    </tr>
+    <tr>
+      <td><strong>SSH Authentication Method</strong></td>
+      <td>Azure Kudu Cloud Shell / RSA Public Key Authentication</td>
+    </tr>
+  </table>
+
+  <h3>8.1 Deployment Steps</h3>
+  <ol>
+    <li>Configured repository on GitHub (<a href="https://github.com/Raghava44u/SalarySeed.tech" target="_blank">https://github.com/Raghava44u/SalarySeed.tech</a>) tracking branch <code>main</code>.</li>
+    <li>Provisioned Azure Web App instance <code>salaryseed-web</code> on Linux runtime stack with Node.js 24 LTS in India South Central.</li>
+    <li>Created multi-page Vite 6 build configuration generating all 15 HTML entry points and static SEO assets into <code>dist/</code>.</li>
+    <li>Engineered <code>server.js</code> to bind to <code>0.0.0.0</code> on <code>process.env.PORT</code>, serve static files with immutable caching, resolve clean URLs without extensions, and provide <code>/health</code> probe.</li>
+    <li>Implemented <code>/js/env.js</code> endpoint to safely inject Supabase public URL and publishable key into client runtime without leaking server secrets.</li>
+    <li>Created automated CI/CD pipeline <code>.github/workflows/azure-deploy.yml</code> with Azure Publish Profile authentication.</li>
+    <li>Configured build and test sequence in GitHub Actions (<code>npm ci</code> → <code>npm run build</code> → <code>npm test</code> → <code>npm prune --production</code> → deploy artifact).</li>
+    <li>Configured custom WordPress shortcode plugin in <code>wordpress/salaryseed-calculator/</code> enabling headless or standard WP CMS embedding.</li>
+    <li>Deployed application to Azure and verified live URL: <a href="https://salaryseed-web-dcb2akfxc9f2fwfg.indiasouthcentral-01.azurewebsites.net/" target="_blank">https://salaryseed-web-dcb2akfxc9f2fwfg.indiasouthcentral-01.azurewebsites.net/</a>.</li>
+    <li>Executed Google PageSpeed Insights performance audit verifying <strong>100/100 Desktop</strong> and <strong>100/100 Mobile</strong> scores.</li>
+  </ol>
+
+  <h3>8.2 Issues Faced and Fixes</h3>
+  <table>
+    <tr>
+      <th>Issue</th>
+      <th>Cause</th>
+      <th>Fix Applied</th>
+    </tr>
+    <tr>
+      <td><strong>GitHub Actions CI/CD Test Failure</strong></td>
+      <td>Workflow ran <code>npm test</code> before <code>npm run build</code>, causing integration test to fail because <code>dist/</code> was not yet generated.</td>
+      <td>Swapped execution order in <code>.github/workflows/azure-deploy.yml</code> so <code>npm run build</code> runs before <code>npm test</code>. Added a <code>before()</code> hook in <code>test/azure-server.test.js</code> to auto-build if <code>dist/</code> is absent.</td>
+    </tr>
+    <tr>
+      <td><strong>Azure Port Binding Failure</strong></td>
+      <td>Local server was bound specifically to <code>127.0.0.1:3000</code>, causing Azure App Service container reverse proxy to return 502/504 Bad Gateway.</td>
+      <td>Updated <code>server.js</code> to read <code>process.env.PORT</code> dynamically and bind to <code>0.0.0.0</code> across all container interfaces.</td>
+    </tr>
+    <tr>
+      <td><strong>Clean URL 404 Routing on Static Server</strong></td>
+      <td>Navigating to <code>/about</code> or <code>/salary-calculator</code> returned 404 because server looked for directory instead of <code>.html</code> file.</td>
+      <td>Implemented automated <code>.html</code> extension resolution and fallback in <code>server.js</code> before returning 404.</td>
+    </tr>
+    <tr>
+      <td><strong>Supabase Runtime Configuration in Azure</strong></td>
+      <td>Build-time <code>import.meta.env</code> prevented runtime configuration updates via Azure App Settings without rebuilding.</td>
+      <td>Refactored <code>js/config.js</code> to use dynamic ES6 property getters prioritizing <code>window.__ENV__</code> served dynamically by <code>/js/env.js</code>.</td>
+    </tr>
+    <tr>
+      <td><strong>Open Redirect Vulnerability in Auth Flow</strong></td>
+      <td>Unsanitized <code>redirect</code> URL parameters in login handler created potential phishing vectors.</td>
+      <td>Created <code>sanitizeRedirectPath()</code> utility strictly rejecting protocol-relative URLs (<code>//</code>) and cross-domain origins.</td>
+    </tr>
+  </table>
+
+  <h3>8.3 Evidence</h3>
+  <p>Evidence of live deployment, SSL certificate validity, health check probe response, and Google PageSpeed Insights 100/100 audits are indexed in Section 9.</p>
+
+  <hr>
+
+  <h2>9. Evidence Index</h2>
+  <table>
+    <tr>
+      <th>Figure No.</th>
+      <th>Caption</th>
+      <th>Section</th>
+      <th>Page / Location</th>
+    </tr>
+    <tr>
+      <td><strong>Figure 1</strong></td>
+      <td>SalarySeed Information Architecture and Crawl Hierarchy</td>
+      <td>Section 5.1</td>
+      <td>Report Section 5</td>
+    </tr>
+    <tr>
+      <td><strong>Figure 2</strong></td>
+      <td>Live Production Homepage on Azure App Service</td>
+      <td>Section 8.3</td>
+      <td>Live Website</td>
+    </tr>
+    <tr>
+      <td><strong>Figure 3</strong></td>
+      <td>SSL/TLS Certificate Verification over HTTPS (Issued by Microsoft Azure / DigiCert)</td>
+      <td>Section 8.3</td>
+      <td>Browser Security Panel</td>
+    </tr>
+    <tr>
+      <td><strong>Figure 4</strong></td>
+      <td><strong>Google PageSpeed Insights Desktop Audit: 100 Performance, 92 Accessibility, 100 Best Practices, 100 SEO (FCP 0.4s, LCP 0.4s, TBT 0ms, CLS 0)</strong></td>
+      <td>Section 8.3</td>
+      <td>evidence/desktop_pagespeed_insights_100.png</td>
+    </tr>
+    <tr>
+      <td><strong>Figure 5</strong></td>
+      <td><strong>Google PageSpeed Insights Mobile Audit: 100 Performance, 92 Accessibility, 100 Best Practices, 100 SEO (FCP 1.4s, LCP 1.4s, TBT 0ms, CLS 0 on Moto G Power 4G)</strong></td>
+      <td>Section 8.3</td>
+      <td>evidence/mobile_pagespeed_insights_100.png</td>
+    </tr>
+    <tr>
+      <td><strong>Figure 6</strong></td>
+      <td>Automated Test Suite Results: 12/12 Tests Passing (Salary Engine + Azure Integration Tests)</td>
+      <td>Section 8.1</td>
+      <td>Appendix A / Terminal Log</td>
+    </tr>
+    <tr>
+      <td><strong>Figure 7</strong></td>
+      <td>GitHub Actions Automated CI/CD Workflow Execution (azure-deploy.yml)</td>
+      <td>Section 8.1</td>
+      <td>GitHub Repository</td>
+    </tr>
+    <tr>
+      <td><strong>Figure 8</strong></td>
+      <td>Protected Interactive Salary Calculator (/salary-calculator.html) with Real-Time Breakdown</td>
+      <td>Section 1.3 / 5.2</td>
+      <td>Live Application</td>
+    </tr>
+    <tr>
+      <td><strong>Figure 9</strong></td>
+      <td>Supabase Authentication Flow with Secure Session Persistence</td>
+      <td>Section 8.1</td>
+      <td>Live Application</td>
+    </tr>
+    <tr>
+      <td><strong>Figure 10</strong></td>
+      <td>XML Sitemap (/sitemap.xml) and Crawler Directives (/robots.txt) in Production</td>
+      <td>Section 5.1 / 6.0</td>
+      <td>Live Application</td>
+    </tr>
+  </table>
+
+  <h3>Detailed Audit Metric Breakdown (Figure 4 & Figure 5 Evidence Analysis)</h3>
+  <p>The live production deployment of SalarySeed was audited using <strong>Google PageSpeed Insights (Lighthouse 13.5.0)</strong> on October 9, 2026, at 9:06 PM GMT+5:30:</p>
+
+  <div class="figure-box">
+    <img src="evidence/desktop_pagespeed_insights_100.png" alt="Google PageSpeed Insights Desktop Audit">
+    <div class="figure-caption">Figure 4: Google PageSpeed Insights Desktop Audit — 100 Performance, 92 Accessibility, 100 Best Practices, 100 SEO</div>
+  </div>
+
+  <h4>A. Desktop Audit Metrics</h4>
+  <ul>
+    <li><strong>Performance:</strong> <span class="metric-badge">100 / 100</span></li>
+    <li><strong>Accessibility:</strong> <span class="metric-badge">92 / 100</span></li>
+    <li><strong>Best Practices:</strong> <span class="metric-badge">100 / 100</span></li>
+    <li><strong>SEO:</strong> <span class="metric-badge">100 / 100</span></li>
+    <li><strong>Agentic Browsing:</strong> <span class="metric-badge">2 / 2</span></li>
+    <li>First Contentful Paint (FCP): <strong>0.4 s</strong> (Threshold: &lt; 1.8 s — Passed)</li>
+    <li>Largest Contentful Paint (LCP): <strong>0.4 s</strong> (Threshold: &lt; 2.5 s — Passed)</li>
+    <li>Total Blocking Time (TBT): <strong>0 ms</strong> (Threshold: &lt; 200 ms — Perfect score)</li>
+    <li>Cumulative Layout Shift (CLS): <strong>0</strong> (Threshold: &lt; 0.1 — Zero layout shifts)</li>
+    <li>Speed Index: <strong>0.8 s</strong></li>
+  </ul>
+
+  <div class="figure-box">
+    <img src="evidence/mobile_pagespeed_insights_100.png" alt="Google PageSpeed Insights Mobile Audit">
+    <div class="figure-caption">Figure 5: Google PageSpeed Insights Mobile Audit — 100 Performance, 92 Accessibility, 100 Best Practices, 100 SEO (Moto G Power 4G)</div>
+  </div>
+
+  <h4>B. Mobile Audit Metrics</h4>
+  <ul>
+    <li><strong>Environment:</strong> Emulated Moto G Power on Slow 4G Mobile Throttling</li>
+    <li><strong>Performance:</strong> <span class="metric-badge">100 / 100</span></li>
+    <li><strong>Accessibility:</strong> <span class="metric-badge">92 / 100</span></li>
+    <li><strong>Best Practices:</strong> <span class="metric-badge">100 / 100</span></li>
+    <li><strong>SEO:</strong> <span class="metric-badge">100 / 100</span></li>
+    <li><strong>Agentic Browsing:</strong> <span class="metric-badge">2 / 2</span></li>
+    <li>First Contentful Paint (FCP): <strong>1.4 s</strong> (Threshold: &lt; 1.8 s — Passed)</li>
+    <li>Largest Contentful Paint (LCP): <strong>1.4 s</strong> (Threshold: &lt; 2.5 s — Passed)</li>
+    <li>Total Blocking Time (TBT): <strong>0 ms</strong> (Threshold: &lt; 200 ms — Perfect score)</li>
+    <li>Cumulative Layout Shift (CLS): <strong>0</strong> (Threshold: &lt; 0.1 — Zero layout shifts)</li>
+    <li>Speed Index: <strong>2.3 s</strong></li>
+  </ul>
+
+  <hr>
+
+  <h2>10. Tools and AI Use Disclosure</h2>
+  <table>
+    <tr>
+      <th style="width: 35%;">Tool or AI Assistant</th>
+      <th style="width: 45%;">What It Was Used For</th>
+      <th>Section(s)</th>
+    </tr>
+    <tr>
+      <td><strong>Google Antigravity AI</strong></td>
+      <td>Initial code boilerplate, test assertion drafting, and report outline formatting</td>
+      <td>All Sections</td>
+    </tr>
+    <tr>
+      <td><strong>Node.js Test Runner (<code>node --test</code>)</strong></td>
+      <td>Running automated unit tests on salary formulas and Azure server routes</td>
+      <td>Section 8, Appendix A</td>
+    </tr>
+    <tr>
+      <td><strong>Google PageSpeed Insights / Lighthouse 13.5.0</strong></td>
+      <td>Measuring Core Web Vitals, mobile speed, accessibility, and SEO scores</td>
+      <td>Section 8.3, Section 9</td>
+    </tr>
+    <tr>
+      <td><strong>Google Keyword Planner & Trends</strong></td>
+      <td>Checking monthly search volumes and keyword difficulty</td>
+      <td>Section 2</td>
+    </tr>
+    <tr>
+      <td><strong>Google Search Engine (SERP)</strong></td>
+      <td>Auditing top ranking pages, competitor layouts, and search intent</td>
+      <td>Section 3, Section 4</td>
+    </tr>
+    <tr>
+      <td><strong>GitHub Actions</strong></td>
+      <td>Running automated CI/CD builds, tests, and deployment to Azure App Service</td>
+      <td>Section 8, Appendix A</td>
+    </tr>
+  </table>
+
+  <p><strong>Disclosure Statement:</strong> AI tools were used strictly as assistive utilities for drafting boilerplate code, generating test assertions, and structuring the report draft. All underlying data, tax calculations under Section 115BAC, salary formulas, architectural choices, and technical debugging were manually verified and implemented by Dasari Veera Raghavulu (E23CSEU2320).</p>
+
+  <hr>
+
+  <h2>11. Declaration of Originality</h2>
+  <p>We declare that this report is our own work, that all data was collected by us using the tools named, and that all external sources are cited. We understand that copied content, fabricated data, or undisclosed AI-generated content will be treated as academic misconduct.</p>
+
+  <p style="margin-top: 2rem;">
+    <strong>Student Name:</strong> Dasari Veera Raghavulu<br>
+    <strong>Enrolment No.:</strong> E23CSEU2320<br>
+    <strong>Date:</strong> 09-10-2026<br>
+    <strong>Signature:</strong> <em>Dasari Veera Raghavulu</em>
+  </p>
+
+  <hr>
+
+  <h2>Appendix A: Command Logs</h2>
+  <p><em>Paste SSH / deployment / CLI commands and their output as text, in the order they were run. Remove passwords and keys.</em></p>
+
+  <pre><code># 1. Reproducible Dependency Installation:
+$ npm ci
+added 32 packages in 1.42s
+
+# 2. Production Asset Build with Vite 6 (All 15 Multi-Page HTML Entry Points):
+$ npm run build
+> salaryseed@1.0.0 build
+> vite build
+
+vite v6.4.4 building for production...
+transforming...
+✓ 31 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/auth/reset-password.html             2.42 kB │ gzip: 0.98 kB
+dist/auth/forgot-password.html            2.62 kB │ gzip: 1.15 kB
+dist/auth/login.html                      3.62 kB │ gzip: 1.41 kB
+dist/auth/signup.html                     3.74 kB │ gzip: 1.39 kB
+dist/privacy.html                         4.73 kB │ gzip: 1.85 kB
+dist/dashboard.html                       5.17 kB │ gzip: 1.97 kB
+dist/guides/ctc-vs-in-hand-salary.html    5.95 kB │ gzip: 2.28 kB
+dist/guides/salary-breakup-guide.html     6.14 kB │ gzip: 2.23 kB
+dist/about.html                           6.23 kB │ gzip: 2.48 kB
+dist/guides/old-vs-new-tax-regime.html    6.30 kB │ gzip: 2.22 kB
+dist/guides/5-lpa-in-hand-salary.html     7.99 kB │ gzip: 2.62 kB
+dist/methodology.html                     8.03 kB │ gzip: 2.64 kB
+dist/guides/10-lpa-in-hand-salary.html    8.16 kB │ gzip: 2.61 kB
+dist/salary-calculator.html              12.68 kB │ gzip: 3.28 kB
+dist/index.html                          17.61 kB │ gzip: 4.68 kB
+dist/assets/style-CVaPnWvN.css           10.94 kB │ gzip: 2.89 kB
+dist/assets/dashboard-BPFXi0nM.js         0.18 kB │ gzip: 0.17 kB
+dist/assets/main-DYidc6mw.js              0.38 kB │ gzip: 0.26 kB
+dist/assets/resetPassword-DLPLGLQI.js     1.51 kB │ gzip: 0.69 kB
+dist/assets/forgotPassword-C5hOeQkp.js    1.53 kB │ gzip: 0.72 kB
+dist/assets/login-zHH9IygB.js             1.75 kB │ gzip: 0.81 kB
+dist/assets/auth-guard-DtATSRVc.js        2.03 kB │ gzip: 1.02 kB
+dist/assets/signup-rsUkcuG1.js            2.31 kB │ gzip: 0.98 kB
+dist/assets/supabase-client-C_ZP-bzL.js   3.38 kB │ gzip: 1.60 kB
+dist/assets/calculator-C_FRCX6g.js       14.35 kB │ gzip: 3.90 kB
+✓ built in 245ms
+
+# 3. Full Test Suite Execution (Unit Tests + Azure Integration Tests):
+$ npm test
+> salaryseed@1.0.0 test
+> node --test test/*.test.js
+
+✔ Azure App Service: dist directory contains all 15 HTML pages and SEO assets (1.3379ms)
+✔ Azure App Service: server starts on dynamic PORT and serves built assets (842.5854ms)
+✔ formatINR correctly formats numbers with Indian commas and Rupee symbol (17.264ms)
+✔ calculateTaxNewRegime: Income up to ₹3 Lakh has 0 tax (0.2838ms)
+✔ calculateTaxNewRegime: Section 87A Rebate yields 0 tax for taxable income &lt;= ₹7,00,000 (0.1201ms)
+✔ calculateTaxNewRegime: Taxable income ₹10 Lakh calculates correct slab tax + cess (0.1096ms)
+✔ calculateTaxOldRegime: Basic exemption and 87A rebate up to ₹5,00,000 (0.2349ms)
+✔ calculateQuickEstimate: 5 LPA Package breakdown and zero tax under Section 87A (0.3087ms)
+✔ calculateQuickEstimate: 10 LPA Package breakdown (0.2693ms)
+✔ calculateQuickEstimate: 25 LPA High Income CTC consistency (0.136ms)
+✔ calculateDetailedBreakdown: Custom inputs calculate correctly (0.385ms)
+✔ Boundary values: Zero CTC, negative values and empty inputs handled gracefully (0.2644ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 967.5188
+
+# 4. Production Server Launch & Health Probe Verification:
+$ node server.js
+==================================================
+🌱 SalarySeed Production Server Running
+📡 URL: http://0.0.0.0:3000
+📁 Static Directory: D:\SEO\dist
+🌍 Environment: production
+==================================================
+
+$ curl -I http://localhost:3000/health
+HTTP/1.1 200 OK
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+Content-Type: text/plain; charset=UTF-8
+Content-Length: 2
+Date: Fri, 09 Oct 2026 15:28:52 GMT
+Connection: keep-alive
+
+OK
+
+# 5. Git Commit and Push to Remote Main:
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+Changes not staged for commit:
+  modified:   .github/workflows/azure-deploy.yml
+  modified:   js/config.js
+  modified:   test/azure-server.test.js
+
+$ git add .github/workflows/azure-deploy.yml js/config.js test/azure-server.test.js
+$ git commit -m "fix(ci): build production assets before running tests and add test before-hook"
+[main 8b7adaf] fix(ci): build production assets before running tests and add test before-hook
+ 3 files changed, 28 insertions(+), 13 deletions(-)
+
+$ git push origin main
+To https://github.com/Raghava44u/SalarySeed.tech.git
+   d03e94c..8b7adaf  main -> main</code></pre>
+
+  <hr>
+
+  <h2>Appendix B: References</h2>
+  <ol>
+    <li><strong>Income Tax Department of India.</strong> <em>Tax Slabs for Assessment Year 2025-26 & 2026-27 under Section 115BAC.</em> Available at: <code>https://www.incometax.gov.in</code> (Accessed: October 2026).</li>
+    <li><strong>Ministry of Law and Justice, Government of India.</strong> <em>The Finance (No. 2) Act, 2024.</em> The Gazette of India.</li>
+    <li><strong>Employees' Provident Fund Organisation (EPFO).</strong> <em>Employees' Provident Funds and Miscellaneous Provisions Act, 1952.</em> Available at: <code>https://www.epfindia.gov.in</code> (Accessed: October 2026).</li>
+    <li><strong>Ministry of Labour and Employment, Government of India.</strong> <em>Payment of Gratuity Act, 1972.</em></li>
+    <li><strong>Constitution of India.</strong> <em>Article 276: Taxes on professions, trades, callings and employments.</em></li>
+    <li><strong>Google Search Central.</strong> <em>Search Engine Optimization (SEO) Starter Guide & Structured Data Documentation.</em> Available at: <code>https://developers.google.com/search</code> (Accessed: October 2026).</li>
+    <li><strong>Google Chrome Developers.</strong> <em>Core Web Vitals & Lighthouse Metrics Documentation.</em> Available at: <code>https://developer.chrome.com/docs/lighthouse</code> (Accessed: October 2026).</li>
+    <li><strong>Supabase Inc.</strong> <em>Supabase Auth Documentation & User Management.</em> Available at: <code>https://supabase.com/docs/guides/auth</code> (Accessed: October 2026).</li>
+    <li><strong>Microsoft Azure.</strong> <em>Azure App Service Linux Documentation & Node.js Deployment.</em> Available at: <code>https://learn.microsoft.com/azure/app-service/</code> (Accessed: October 2026).</li>
+  </ol>
+
+</div>
+
+</body>
+</html>

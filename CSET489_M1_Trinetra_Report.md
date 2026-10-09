@@ -21,7 +21,6 @@
 
 | Field | Entry |
 | :--- | :--- |
-| **Team ID (as assigned)** | `[Team ID]` *(e.g., T-TriNetra)* |
 | **Team Name** | TriNetra |
 | **Project / Website Title** | SalarySeed — India In-Hand Salary Calculator |
 | **Niche (one line)** | Indian Personal Finance, CTC Breakdown & In-Hand Salary Computation |
@@ -38,7 +37,7 @@
 
 | S. No. | Full Name | Enrolment No. | Role (Leader / Member) | Email |
 | :---: | :--- | :--- | :---: | :--- |
-| 1 | Dasari Veera Raghavulu | E23CSEU2320 | Leader | raghavulu.d@bennett.edu.in |
+| 1 | Dasari Veera Raghavulu | E23CSEU2320 | Leader | e23cseu2320@bennett.edu.in |
 
 ---
 

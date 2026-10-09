@@ -27,15 +27,15 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Run Test Suite
-        run: npm test
-
       - name: Build Production Assets with Vite
         run: npm run build
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+
+      - name: Run Test Suite
+        run: npm test
 
       - name: Prune Dev Dependencies for Production Package
         run: npm prune --production

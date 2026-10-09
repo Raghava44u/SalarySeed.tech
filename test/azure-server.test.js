@@ -1,6 +1,6 @@
-import test from 'node:test';
+import test, { before } from 'node:test';
 import assert from 'node:assert/strict';
-import { spawn } from 'node:child_process';
+import { spawn, execSync } from 'node:child_process';
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -9,6 +9,15 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.dirname(__dirname);
+
+// Ensure dist/ exists before running tests (auto-builds if invoked standalone)
+before(() => {
+  const distDir = path.join(ROOT_DIR, 'dist');
+  if (!fs.existsSync(distDir)) {
+    console.log('dist/ not found, building production bundle before tests...');
+    execSync('npm run build', { cwd: ROOT_DIR, stdio: 'inherit' });
+  }
+});
 
 // Random test port to prove server does NOT assume port 3000
 const TEST_PORT = 45821;

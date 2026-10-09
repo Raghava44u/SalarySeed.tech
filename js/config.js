@@ -6,15 +6,21 @@
  * 3. Fallback placeholder
  */
 
-const viteUrl = typeof import.meta !== 'undefined' && import.meta.env?.VITE_SUPABASE_URL;
-const viteAnonKey = typeof import.meta !== 'undefined' && (import.meta.env?.VITE_SUPABASE_PUBLISHABLE_KEY || import.meta.env?.VITE_SUPABASE_ANON_KEY);
-
-const winUrl = typeof window !== 'undefined' && window.__ENV__?.VITE_SUPABASE_URL;
-const winAnonKey = typeof window !== 'undefined' && (window.__ENV__?.VITE_SUPABASE_PUBLISHABLE_KEY || window.__ENV__?.VITE_SUPABASE_ANON_KEY);
-
 export const SUPABASE_CONFIG = {
-  url: viteUrl || winUrl || "https://your-project-id.supabase.co",
-  anonKey: viteAnonKey || winAnonKey || "your-anon-key-placeholder",
+  get url() {
+    const win = typeof window !== 'undefined' ? window.__ENV__?.VITE_SUPABASE_URL : null;
+    const vite = typeof import.meta !== 'undefined' ? import.meta.env?.VITE_SUPABASE_URL : null;
+    return win || vite || "https://your-project-id.supabase.co";
+  },
+  get anonKey() {
+    const win = typeof window !== 'undefined'
+      ? (window.__ENV__?.VITE_SUPABASE_PUBLISHABLE_KEY || window.__ENV__?.VITE_SUPABASE_ANON_KEY)
+      : null;
+    const vite = typeof import.meta !== 'undefined'
+      ? (import.meta.env?.VITE_SUPABASE_PUBLISHABLE_KEY || import.meta.env?.VITE_SUPABASE_ANON_KEY)
+      : null;
+    return win || vite || "your-anon-key-placeholder";
+  }
 };
 
 /**
